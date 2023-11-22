@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Example</title>
+    <style>
+        canvas:hover {
+            transform: scale(1.1);
+            transition: transform0.3s ease;
+        }
+
+        body {
+            background-color: aliceblue;
+            font-family: "open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .canvas-container {
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+
+        .input {
+            background-color: #f9f9f9;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .input:hover {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+
+        .button {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            transition: all0.2s ease-in-out;
+        }
+
+        .button:hover {
+            transform: translate(2px 2px);
+            box-shadow: none;
+        }
+    </style>
+    <script src=""></script>
+</head>
+
+<body>
+    <h1>Chart.Js Example</h1>
+    <p>Enter a comma-separated list of numbers to plot: </p>
+    <input onkeyup="drawcharts()" class="input" type="text" name="" id="inputArray" />
+    <button class="button" onclick="drawcharts()"> plot Charts</button>
+    <div style="display: flex; justify-content: center;">
+        <div class="canvas-container">
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div class="canvas-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="canvas-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+    <script>
+        let lineChart = null;
+        let barChart = null;
+        let pieChart = null;
+
+        function drawCharts() {
+            const inputArray = document
+                .getElementById("inputArray")
+                .value.split(",")
+                .map(Number);
+
+            const labels = inputArray.map(
+                (value, index) => "Data Point " + (index + 1)
+            );
+            const lineChartData = {
+                labels: labels,
+                datsets: [
+                    {
+                        label: "Line Chart",
+                        data: inputArray,
+                        fill: false,
+                        borderColor: "rgb(75,192,192)",
+                        tension: 0.1,
+                    },
+                ],
+            };
+            const barChartData = {
+                labels: labels,
+                datsets: [
+                    {
+                        label: "Bar Chart",
+                        data: inputArray,
+                        backgroundColor: "rgba(75,192,192,0.2)",
+                        borderColor: "rgb(75, 192, 192)",
+                        borderWidth: 1,
+                    },
+                ],
+            };
+            const pieChartData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Pie Chart",
+                        data: inputArray,
+                        backgroundColor: [
+                            "rgb(255, 99, 132)",
+                            "rgb(54, 162, 235)",
+                            "rgb(255, 205, 86)",
+                            "rgb(75, 192, 192)",
+                            "rgb(153, 102, 255)",
+                            "rgb(255, 159, 64)",
+                        ],
+                    },
+                ],
+            };
+
+            if (lineChart) {
+                lineChart.destroy();
+            }
+            if (barChart) {
+                barChart.destroy();
+            }
+            if (pieChart) {
+                pieChart.destroy();
+            }
+
+            const lineChartElement = document.getElementById("lineChart");
+            lineChart = new Chart(lineChartElement, {
+                type: "line",
+                data: lineChartData,
+                options: {},
+            });
+            const barChartElement = document.getElementById("barChart");
+            barChart = new Chart(barChartElement, {
+                type: "bar",
+                data: barChartData,
+                options: {},
+            });
+
+            const pieChartElement = document.getElementById("pieChart");
+            pieChart = new Chart(pieChartElement, {
+                type: "pie",
+                data: pieChartData,
+                options: {},
+            });
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+&nbsp;
+<!-- GetElementsByTagName -->
+
+<!-- search elements by tag name -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tag Name</title>
+<style>
+.blue
+{
+background-color: blue;
+
+}
+.green
+{
+background-color: green;
+
+}
+</style>
+<script>
+function traverse()
+{
+
+var elements=document.getElementsByTagName("div");
+var n=elements.length;
+for(var i=0;i<=n-1;i++)
+{
+elements[i].innerHTML="Div";
+
+
+}
+var elements=document.getElementsByTagName("p");
+var n=elements.length;
+for(var i=0;i<=n-1;i++)
+{
+elements[i].innerHTML="Paragraph";
+
+
+}
+}
+</script>
+</head>
+<body>
+A<div></div>
+<br/>
+B<p></p>
+<br/>
+C<div></div>
+<br/>
+D<p></p>
+<br/>
+E<div></div>
+<br/>
+F<p></p>
+<br/>
+<input type="button" onclick="traverse()" value="Traverse"/>
+</body>
+</html>

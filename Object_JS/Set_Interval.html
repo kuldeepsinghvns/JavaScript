@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+<title>setInterval, Clear Interval</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script>
+var n=0;
+var loop;
+
+function startCount()
+{
+loop=setInterval(f,1000);
+}	
+function f()
+{
+n++;
+document.getElementById("output").innerHTML=n;
+
+}
+function stopCount()
+{
+clearInterval(loop);
+}	
+ </script>
+</head>
+<body>
+ Output<div id="output"></div><br/>
+ 
+ <input type="button" value="Start Counting" onclick="startCount()"><br/>
+ <input type="button" value="Stop Counting" onclick="stopCount()"><br/>
+ 
+</body>
+</html>

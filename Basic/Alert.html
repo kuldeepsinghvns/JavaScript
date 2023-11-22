@@ -1,0 +1,83 @@
+<!-- This will swap contents of the 2 textboxes. -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Id</title>
+    <script>
+        function doSwap() {
+            var x = document.getElementById("ta");
+            var y = document.getElementById("tb");
+            var z = document.getElementById("hy");
+            var t = x.value;
+            x.value = y.value;
+            y.value = t;
+            var t = x.value;
+            x.value = z.value;
+            z.value = t;
+
+
+        }
+    </script>
+</head>
+
+<body>
+    A<input type="text" id="ta" />
+    <br />
+    B<input type="text" id="tb" />
+    <br />
+    C <input type="text" id="hy" />
+    <br>
+    <input type="button" onclick="doSwap()" value="Swap" />
+
+</body>
+
+</html>
+
+
+<!-- Elements By Name -->
+
+<!-- This will uncheck each and every Radio Button. -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Name</title>
+    <script>
+        function doCheckAll() {
+
+            var radiobuttons = document.getElementsByName("game");
+            var n = radiobuttons.length;
+            for (var i = 0; i <= n - 1; i++) {
+                radiobuttons[i].checked = "";
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <br><br>
+    A<input type="radio" name="game" />
+    <br />
+    B<input type="radio" name="game" />
+    <br />
+    C<input type="radio" name="game" />
+    <br />
+    D<input type="radio" name="game" />
+    <br />
+    E<input type="radio" name="game" />
+    <br />
+    F<input type="radio" name="game" />
+    <br />
+    <input type="button" onclick="doCheckAll()" value="UnCheck" />
+</body>
+
+</html>
+
+

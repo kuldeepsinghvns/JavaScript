@@ -1,0 +1,60 @@
+<!-- GetElementsByClassName -->
+<!-- Search elements by css classname -->
+
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Class Name</title>
+<style>
+.blue
+{
+background-color: rgb(3, 3, 253);
+
+}
+.green
+{
+background-color: rgb(141, 222, 141);
+
+}
+</style>
+<script>
+function traverse()
+{
+
+var textboxes=document.getElementsByClassName("blue");
+var n=textboxes.length;
+for(var i=0;i<=n-1;i++)
+{
+textboxes[i].value="Blue";
+
+
+}
+textboxes=document.getElementsByClassName("green");
+var n=textboxes.length;
+for(var i=0;i<=n-1;i++)
+{
+textboxes[i].value="Green";
+
+
+}
+}
+</script>
+</head>
+<body>
+A<input type="text" class="blue"/>
+<br/>
+B<input type="text" class="green"/>
+<br/>
+C<input type="text" class="blue"/>
+<br/>
+D<input type="text" class="green"/>
+<br/>
+E<input type="text" class="blue"/>
+<br/>
+F<input type="text" class="blue"/>
+<br/>
+<input type="button" onclick="traverse()" value="Traverse"/>
+</body>
+</html>
