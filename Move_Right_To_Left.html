@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Right To Left</title>
+    <script>
+        
+        var x = 1;
+        var n = 0;
+        var loop;
+        var width = 10;
+        function startCount() {
+            loop = setInterval(f, 10);
+        }
+        function f() {
+            n++;
+            // document.getElementById("output").innerHTML=n;
+            document.getElementById("d").style.left = width + "px";
+
+            width = width + x;
+            console.log(width);
+            if(width<=0 || width>700)
+            x=-x;
+            
+
+
+
+            document.getElementById("e").style.right = width + "px";
+
+
+
+        }
+
+
+
+        function stopCount() {
+            clearInterval(loop);
+        }
+
+
+    </script>
+    <style>
+        .tput {
+            position: absolute;
+            width: 10%;
+            height: 40%;
+            left: 0%;
+            top: 30%;
+            border-style: ridge;
+            border-color: red;
+            background-color: bisque;
+            box-shadow: 10px 10px 10px rgb(53, 51, 46);
+
+
+        }
+
+        .ttput {
+            position: absolute;
+            width: 10%;
+            height: 40%;
+            right: 0%;
+            top: 30%;
+            border-style: ridge;
+            border-color: rgb(52, 7, 186);
+            background-color: rgb(255, 196, 248);
+            box-shadow: 10px 10px 10px rgb(53, 51, 46);
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d" class="tput">
+        Div
+
+    </div>
+    <div id="e" class="ttput">Div</div>
+
+
+    <input type="button" value="Start" onclick="startCount()"><br>
+    <input type="button" value="Stop" onclick="stopCount()"><br>
+
+
+</body>
+
+</html>

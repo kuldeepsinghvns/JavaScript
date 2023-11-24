@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round All</title>
+
+    <script>
+        var x = 1;
+        var loop;
+        var n = 0;
+        leftpos = 0;
+
+
+
+        function startCount() {
+            loop = setInterval(f, 10);
+
+
+        }
+        function f1() {
+            n++;
+
+            document.getElementById("d").style.top = leftpos + "px";
+            leftpos = leftpos + x;
+
+            if (leftpos > 450) {
+                clearInterval(loop);
+            }
+
+        }
+        function f() {
+            n++;
+            document.getElementById("d").style.left = leftpos + "px";
+            leftpos = leftpos + x;
+            if (leftpos > 1000) {
+
+                // leftpos = 0;
+
+                clearInterval(loop);
+                loop = setInterval(f3, 10);
+
+            }
+        }
+
+        // function f3() {
+        //     n++;
+        //     document.getElementById("d").style.right = leftpos + "px";
+        //     leftpos = leftpos + x;
+        //     console.log(leftpos)
+        //     if (leftpos <= 0 || leftpos > 700) {
+        //         x=-x;
+        //         clearInterval(loop);
+        //         loop= setInterval(f1,10);
+                
+
+
+        //     }
+
+        // }
+
+
+        function stopCount() {
+            clearInterval(loop);
+        }
+
+
+
+    </script>
+    <style>
+        .set {
+            position: absolute;
+            width: 10%;
+            height: 40%;
+            left: 15%;
+            top: 0%;
+            border-style: ridge;
+            border-color: red;
+            background-color: bisque;
+            box-shadow: 10px 10px 10px rgb(53, 51, 46);
+
+
+        }
+
+        /* .set2 {
+    position: absolute;
+    width: 10%;
+    height: 40%;
+    right: 20%;
+    top: 0%;
+    border-style: ridge;
+    border-color: rgb(52, 7, 186);
+    background-color: rgb(255, 196, 248);
+    box-shadow: 10px 10px 10px rgb(53, 51, 46);
+
+
+} */
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div id="d" class="set">Div</div>
+
+    <input type="button" value="Start" onclick="startCount()"><br>
+    <input type="button" value="Stop" onclick="stopCount()"><br>
+
+</body>
+
+</html>

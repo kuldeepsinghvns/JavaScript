@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Timer</title>
+    <script>
+        var n = 15;
+        var loop;
+
+
+        function startCount() {
+            loop = setInterval(f, 1000);
+
+
+        }
+        function f() {
+            if (n > 0) {
+                n--;
+                document.getElementById("Break").innerHTML = n;
+            }
+            else {
+                clearInterval(loop);
+                alert("Time End");
+                location = "https://www.google.com/search?q=EggCurry&sca_esv=584519941&sxsrf=AM9HkKnvGCHpJJIpVQPs9fIhk0zyvyl2hw%3A1700640237925&source=hp&ei=7bVdZYr8NYam2roPp5CIuAw&iflsig=AO6bgOgAAAAAZV3D_XL9WUxHHlChkmRguGsNVzuAFvHc&ved=0ahUKEwjKppTKkteCAxUGk1YBHScIAscQ4dUDCBI&oq=EggCurry&gs_lp=Egdnd3Mtd2l6IghFZ2dDdXJyeUgAUABYAHAAeACQAQCYAQCgAQCqAQC4AQzIAQA&sclient=gws-wiz";
+            }
+
+
+        }
+        function stopCount() {
+
+            clearInterval(loop);
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    Break<div id="Break"></div><br>
+    <input type="button" value="Start" onclick="startCount()"><br>
+    <input type="button" value="Stop" onclick="stopCount()"><br>
+
+
+</body>
+
+</html>

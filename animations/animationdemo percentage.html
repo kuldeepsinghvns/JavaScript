@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Demo Percentage</title>
+  <style>
+    div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+      animation-name: example;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: both;
+
+    }
+
+    @keyframes example {
+      0% {
+        background-color: red;
+        border-radius: 50%;
+        left: 0%;
+      }
+
+      25% {
+        background-color: blue;
+        border-radius: 50%;
+        left: 90%;
+      }
+
+      50% {
+        background-color: green;
+        border-radius: 50%;
+        left: 0%;
+        height: 400px;
+      }
+
+      75% {
+        background-color: yellow;
+        border-radius: 50%;
+        left: 90%;
+      }
+
+      100% {
+        background-color: gray;
+        border-radius: 50%;
+        left: 0%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>Animation Demo</h1>
+  <div></div>
+</body>
+
+</html>

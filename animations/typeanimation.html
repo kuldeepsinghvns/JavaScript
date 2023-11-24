@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo </title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: 1;
+            animation-direction: alternate;
+            animation-fill-mode: both;
+
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                top: 10%;
+                left: 0%;
+
+
+            }
+
+            25% {
+                background-color: aqua;
+                top: 10%;
+                left: 90%;
+
+
+            }
+
+            50% {
+                background-color: aqua;
+                top: 80%;
+                left: 90%;
+
+            }
+
+            95% {
+                background-color: aqua;
+                left: 5%;
+                bottom: 7%;
+
+            }
+
+            100% {
+                background-color: aqua;
+
+                left: 5%;
+                bottom: 80%;
+
+
+            }
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Animation Demo</h1>
+    <div></div>
+</body>
+
+</html>

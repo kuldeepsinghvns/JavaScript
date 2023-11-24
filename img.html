@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img</title>
+    <script>
+
+        var n = 0;
+        var loop;
+        function startCount() {
+            loop = setInterval(f, 500);
+        }
+        function f() {
+            n++;
+            document.getElementById("output").innerHTML = n;
+
+            if (n >= 10) {
+                document.getElementById("d").style.display = "block";
+                clearInterval(loop);
+            }
+
+
+        }
+    </script>
+
+    <style>
+        .tput {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 30%;
+            top: 30%;
+            border-style: ridge;
+            border-color: red;
+            background-color: bisque;
+            box-shadow: 10px 10px 10px rgb(53, 51, 46);
+            display: none;
+
+        }
+
+        .xp {
+            position: absolute;
+            left: 98%;
+            top: -10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d" class="tput">
+        <p id="output"></p>
+        <p class="xp">X</p>
+    </div><br>
+
+
+    <input type="button" value="start" onclick="startCount()"><br>
+    <input type="button" value="Stop" onclick=""><br>
+    <script>
+        startCount();
+    </script>
+
+
+</body>
+
+</html>
