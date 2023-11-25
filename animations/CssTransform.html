@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Transform</title>
+    <style>
+        div {
+            position: absolute;
+            width: 300px;
+            height: 72px;
+            background-color: orange;
+            animation-name: example;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-fill-mode: both;
+
+        }
+
+
+
+        .box {
+       transition: transform 0.5s ease, opacity 0.5s ease;
+     }
+
+     .box:hover {
+       transform: scale(10.2);
+       opacity: 0.8;
+     }
+
+
+        .diamond {
+            transform: rotate(45deg);
+        }
+
+
+
+
+        .image {
+            transform: scale(1.5);
+        }
+
+
+        .parallelogram {
+            transform: skew(20deg, 10deg);
+        }
+
+        /*  Basic Transition  */
+        .button{
+            transition: 0.3s ease;
+        }
+        .button:hover {
+       background-color: #3498db;
+     }
+
+     .fade-in {
+       transition: opacity 0.5s ease 0.3s;
+     }
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="parallelogram"></div>
+    <!-- <div class="button"></div> -->
+
+</body>
+
+</html>

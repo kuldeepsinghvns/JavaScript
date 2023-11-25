@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animation</title>
+    <style>
+div {
+            position: absolute;
+            left: 400px;
+            top:  400px;
+            width: 300px;
+            height: 72px;
+            border-radius: 50px;
+            background-color: rgb(255, 0, 195);
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            /* animation-direction: alternate; */
+            animation-fill-mode: both;
+
+        }
+        .container {
+       perspective: 800px;
+     }
+
+     .box {
+       transform: rotateX(45deg);
+     }
+     
+
+     .cube {
+       transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg);
+     }
+     
+
+     .card {
+       transform: rotateY(30deg) translateZ(50px);
+     }
+     
+
+
+     .box {
+       transition: transform 0.5s ease;
+     }
+
+     .box:hover {
+       transform: rotateX(180deg);
+     }
+     
+
+     .scene {
+       transition: perspective 0.5s ease;
+     }
+
+     .scene:hover {
+       perspective: 1200px;
+     }
+     
+     .parallelogram {
+       transform: skew(20deg, 10deg);
+     }
+
+     @keyframes spin {
+       0% { transform: rotateZ(0); }
+       100% { transform: rotateZ(360deg); }
+     }
+
+     .spinner {
+       animation: spin 3s linear infinite;
+     }
+      
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="parallelogram"></div>
+    
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img Animation</title>
+    <style>
+        div {
+            position: absolute;
+            top: 32%;
+            left: 42%;
+            height: 250px;
+            width: 250px;
+            animation-name: example;
+            background-color: rgb(43, 189, 226);
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.12s;
+            
+
+
+        }
+
+        @keyframes example {
+            0% {
+                transform: rotateZ(0);
+            }
+
+            100% {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        .s1 {
+            position: absolute;
+            top: 32%;
+            left: 42%;
+            height: 240px;
+            width: 240px;
+            animation-name: example2;
+            background-color: rgb(43, 226, 147);
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.8s;
+
+
+        }
+
+        @keyframes example2 {
+            0% {
+                /* transition: 0.2s; */
+                transform: rotateZ(360deg);
+            }
+
+            100% {
+                /* transition: 0.2s; */
+                transform: rotateZ(0deg);
+            }
+        }
+
+        .s2 {
+            position: absolute;
+            top: 32%;
+            left: 42%;
+            height: 230px;
+            width: 230px;
+            animation-name: example3;
+            background-color: yellow;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.4s;
+
+
+        }
+
+        @keyframes example3 {
+            0% {
+                /* transition: 0.2s; */
+                transform: rotateZ(0deg);
+            }
+
+            100% {
+                /* transition: 0.2s; */
+                transform: rotateZ(360deg);
+            }
+        }
+
+        .s3 {
+            position: absolute;
+            top: 32%;
+            left: 42%;
+            height: 220px;
+            width: 220px;
+            animation-name: example4;
+            background-color:cyan;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.16s;
+
+
+        }
+
+        @keyframes example4 {
+            0% {
+                /* transition: 0.2s; */
+                transform: rotateZ(360deg);
+            }
+
+            100% {
+                /* transition: 0.2s; */
+                transform: rotateZ(0deg);
+            }
+        }
+
+        .s4 {
+            position: absolute;
+            top: 32%;
+            left: 42%;
+            height: 210px;
+            width: 210px;
+            animation-name: example5;
+            background-color:deeppink;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.0s;
+
+
+        }
+
+        @keyframes example5 {
+            0% {
+                /* transition: 0.2s; */
+                transform: rotateZ(0deg);
+            }
+
+            100% {
+                /* transition: 0.2s; */
+                transform: rotateZ(360deg);
+            }
+        }
+        .s5 {
+            position: absolute;
+            top: 32%;
+            left: 42%;
+            height: 200px;
+            width: 200px;
+            animation-name: example6;
+            background-color:tomato;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0.5s;
+
+
+        }
+
+        @keyframes example6 {
+            0% {
+                /* transition: 0.2s; */
+                transform: rotateZ(360deg);
+            }
+
+            100% {
+                /* transition: 0.2s; */
+                transform: rotateZ(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div class="s1"></div>
+    <div class="s2"></div>
+    <div class="s3"></div>
+    <div class="s4"></div>
+    <div class="s5"></div>
+
+</body>
+
+</html>
