@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC</title>
+    <script>
+        let num = 0;
+        let result;
+
+        function f1() {
+            document.getElementById("Update").vlaue = `${num}`;
+            let result = SelectAnswerByRadioButton();
+            alert(result);
+        }
+
+        const questions = [{
+            "qno": "1",
+            "question": "What is Python?",
+            "a": "Dish",
+            "b": "Programming Language",
+            "c": "Swimming",
+            "d": "Sport",
+            "correct_option": "b"
+        },
+        {
+            "qno": "2",
+            "question": "Which country did Kapil Dev play?",
+            "a": "Australia",
+            "b": "Pakistan",
+            "c": "India",
+            "d": "Nepal",
+            "correct_option": "c"
+        },
+        {
+            "qno": "3",
+            "question": "The game of chess was first started in?",
+            "a": "India",
+            "b": "Arab",
+            "c": "America",
+            "d": "Persia",
+            "correct_option": "a"
+
+        }
+
+        ];
+
+
+
+        function update() {
+            if (result == correctanswer)
+                num -= 1;
+            document.getElementById("Update").innerHTML = `${num}`;
+        }
+
+
+
+        let qno = 0;
+        const NoQuestions = 3;
+        let correctanswer = "";
+
+        function NextQuestion() {
+
+
+            let SelectAnswer = 0;
+            if (qno > 0) {
+                SelectAnswer = SelectAnswerByRadioButton();
+                if (SelectAnswer == 'e') {
+                    alert("Please Select an Option");
+                    return;
+                }
+                alert('Given Answer is ' + `${SelectAnswer} ' and correctanswer is '${correctanswer}`);
+                if (SelectAnswer != correctanswer) {
+                    alert("Wrong Answer");
+                    window.location = "Gameover.html";
+                    return;
+                }
+                setprize(qno);
+                alert("Correct Answer");
+
+            }
+
+            console.log(qno);
+            document.getElementById("qno").innerHTML = `${questions[qno].question}`;
+            document.getElementById("a").innerHTML = `${questions[qno].a}`;
+            document.getElementById("b").innerHTML = `${questions[qno].b}`;
+            document.getElementById("c").innerHTML = `${questions[qno].c}`;
+            document.getElementById("d").innerHTML = `${questions[qno].d}`;
+            document.getElementById("default").checked = true;
+            correctanswer = questions[qno].correct_option;
+            // console.log(2);
+
+            if (qno >= NoQuestions)
+                alert("KBC End");
+            qno = qno + 1;
+
+            function setprize(qno) {
+                for (let i = 1; i <= 15; i++) {
+                    document.getElementById(`pz${i}`).classList.remove("currentprize");
+                }
+                document.getElementById(`pz${qno}`).classList.add("currentprize");
+
+
+            }
+
+
+        }
+        function SelectAnswerByRadioButton() {
+            let result = document.getElementById("opt_A").checked;
+            if (result)
+                return "a";
+
+            result = document.getElementById("opt_B").checked;
+            if (result)
+                return "b";
+
+            result = document.getElementById("opt_C").checked;
+            if (result)
+                return "c";
+
+            result = document.getElementById("opt_D").checked;
+            if (result)
+                return "d";
+            return "e";
+
+        }
+        const prizes = [5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 125000, 250000, 500000, 1000000, 3000000, 5000000, 7000000]
+
+    </script>
+    <style>
+        .currentprize {
+            border-color: brown;
+            border-style: ridge;
+        }
+
+        .h1 {
+            background-color: #ff7f50;
+        }
+
+        .pz {
+            background-color: #d8bfd8;
+        }
+
+        .que {
+            background-color: #f0ffff;
+        }
+
+        .opt {
+            background-color: #e0ffff;
+            color: coral;
+        }
+
+        .table {
+            background-color: #f0fff0;
+        }
+
+        .btn {
+            background-color: #e6c8b0;
+            border-radius: 50px;
+            box-shadow: 2px 2px 2px rgb(126, 172, 213);
+        }
+
+        .btn:hover {
+            background-color: #e6e6fa;
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <center>
+        <table border="1" class="table">
+
+            <tr>
+                <td colspan="5" class="h1">
+                    <center>
+                        <h1>KBC</h1>
+                    </center>
+                </td>
+                <td rowspan="10">
+                    <table class="pz">
+
+                        <tr>
+                            <td>15 -</td>
+                            <td id="pz15">₹ 7 crore</td>
+                        </tr>
+                        <tr>
+                            <td>14 -</td>
+                            <td id="pz14">₹ 5 crore</td>
+                        </tr>
+                        <tr>
+                            <td>13 -</td>
+                            <td id="pz13">₹ 3 crore</td>
+                        </tr>
+                        <tr>
+                            <td>12 -</td>
+                            <td id="pz12">₹ 1 crore</td>
+                        </tr>
+                        <tr>
+                            <td>11 -</td>
+                            <td id="pz11">₹ 50 lakh</td>
+                        </tr>
+                        <tr>
+                            <td>10 -</td>
+                            <td id="pz10">₹ 25 lakh</td>
+                        </tr>
+                        <tr>
+                            <td>9 -</td>
+                            <td id="pz9">₹ 12,50,000</td>
+                        </tr>
+                        <tr>
+                            <td>8 -</td>
+                            <td id="pz8">₹ 6,40,000</td>
+                        </tr>
+                        <tr>
+                            <td>7 -</td>
+                            <td id="pz7">₹ 3,20,000</td>
+                        </tr>
+                        <tr>
+                            <td>6 -</td>
+                            <td id="pz6">₹ 1,60,000</td>
+                        </tr>
+                        <tr>
+                            <td>5 -</td>
+                            <td id="pz5">₹ 80,000</td>
+                        </tr>
+                        <tr>
+                            <td>4 -</td>
+                            <td id="pz4">₹ 40,000</td>
+                        </tr>
+                        <tr>
+                            <td>3 -</td>
+                            <td id="pz3">₹ 20,000</td>
+                        </tr>
+                        <tr>
+                            <td>2 -</td>
+                            <td id="pz2">₹ 10,000</td>
+                        </tr>
+                        <tr>
+                            <td>1 -</td>
+                            <td id="pz1">₹ 5,000</td>
+                        </tr>
+
+
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+
+                <td colspan="2" rowspan="20" class="que">
+                    <h3>Question :</h3>
+                    <h4>
+                        <p id="qno"></p>
+                    </h4>
+                </td>
+
+            </tr>
+
+            <tr class="opt">
+
+                <td> <input id="opt_A" name="opt" type="radio" value="a"><label id="a"></label> </td>
+                <td> <input id="opt_B" name="opt" type="radio" value="b"> <label id="b"></label></td>
+
+            </tr>
+            <tr class="opt">
+                <td> <input id="opt_C" name="opt" type="radio" value="c"><label id="c"></label> </td>
+                <td> <input id="opt_D" name="opt" type="radio" value="d"> <label id="d"></label></td>
+
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button id="onclick" type="submit" class="btn"
+                        onclick="NextQuestion()">Submit</button>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <input id="default" name="opt" type="radio" style="display: none;" value="">
+
+    </center>
+
+
+
+</body>
+
+</html>
