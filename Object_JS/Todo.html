@@ -10,6 +10,43 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
+        /* Animation */
+
+        .spin {
+            position: static;
+            left: 20px;
+            top: 100%;
+            width: 200px;
+            /* height: 80px; */
+            /* border-radius: 50px;
+            background-color: rgb(255, 0, 195); */
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            /* animation-direction: alternate; */
+            animation-fill-mode: both;
+            
+
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate3d(0, 1, 0, 0deg);
+                opacity: 10%;
+                
+            }
+            100% {
+                transform: rotate3d(0, 1, 0, 360deg);
+                opacity: 100%;
+                
+            }
+        }
+
+
+
+
+
         body {
             background-color: #e0ffff;
         }
@@ -192,7 +229,7 @@
             <div class="row todo">
                 <div class="col-md-12">
                     <center>
-                        <h1>Todo List</h1>
+                        <h1 class="spin">Todo List</h1>
                     </center>
                 </div>
             </div>
