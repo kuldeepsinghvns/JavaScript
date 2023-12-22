@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+
+    <style>
+        .btn {
+            background-color: rgba(64, 225, 118, 0.582);
+            border-radius: 50px;
+
+        }
+
+        table {
+            background-color: rgba(0, 255, 255, 0.251);
+            border-color: rgb(247, 12, 12);
+
+        }
+
+        .input {
+            background-color: rgb(232, 215, 203);
+        }
+    </style>
+</head>
+<script>
+    let tasks = [];
+    function saveTasks() {
+        savetasks = JSON.stringify(tasks);
+        localStorage.setItem("tasks", savetasks);
+        // alert(tasks);
+        readTasks();
+        showTodo();
+    }
+    function readTasks() {
+        let newtasks = localStorage.getItem("tasks");
+        tasks = JSON.parse(newtasks);
+        console.log(newtasks);
+    }
+    function addTask() {
+
+        let newtask = getTodo();
+        tasks.push(newtask);
+        saveTasks();
+
+    }
+
+    function getTodo() {
+        const taskname = document.getElementById("txt1").value;
+        const taskdate = document.getElementById("txt2").value;
+
+        const task = { "taskname": taskname, "taskdate": taskdate, "status": "Pending" };
+        return task;
+    }
+    function showAll() {
+        console.log(tasks);
+        getTodo();
+        showTodo();
+    }
+    function getdata() {
+
+        const task = localStorage.getItem("newTask");
+        const taskObject = JSON.parse(task);
+        console.log(taskObject);
+        const taskname = document.getElementById("txt1").value = taskObject.taskname;
+        const taskdate = document.getElementById("txt2").value = taskObject.taskdate;
+
+    }
+
+    function removed(position) {
+        // tasks.pop();
+        // alert(position);
+        tasks.splice(position, 1);
+        saveTasks();
+
+    }
+
+    // Status Pending Complete
+
+    function Status(position) {
+        if (tasks[position].status === "Pending") {
+            tasks[position].status = "Complete";
+            saveTasks();
+
+        }
+        else {
+            tasks[position].Status = "Pending";
+
+        }
+        saveTasks();
+
+    }
+
+    function showTodo() {
+        const tbl = document.getElementById("tbl");
+        let table = "<table border='1'>\n<tr><th>SNo</th><th>Task</th><th>Date</th><th>Status</th><th></th></tr>\n";
+        let i;
+        for (i = 0; i <= tasks.length - 1; i++) {
+            let task = tasks[i];
+            let rowstyle = "background-color:red;"
+
+
+
+
+            if (task.status == "Complete")
+                rowstyle = "background-color:green ;"
+
+
+
+
+
+            table += `<tr style=${rowstyle}> <th>${i + 1}</th><th>${task.taskname}</th><th>${task.taskdate}</th><th><button onClick="Status(${i})">${task.status}</button></th><th><button onClick="removed(${i})"> Delete</button></th></tr>\n`;
+            // alert();
+
+        }
+
+        table += "</table>\n";
+
+        tbl.innerHTML = table;
+    }
+
+</script>
+
+<body>
+    <div class="container ">
+        <center>
+            <div class="row">
+                <!-- <div class="col-md-12"><center><h1>Todo List</h1></center></div> -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    A: <input class="input form-control" type="text" value="" id="txt1" />
+
+                    B: <input class="input form-control" type="datetime-local" value="" id="txt2" />
+                </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div id="tbl" class="col-md-12 form-control">
+                    Todo
+                </div>
+
+            </div>
+
+
+
+            <br>
+            <input class="btn" type="button" value="AddTask" onclick="addTask()" />
+            <br>
+            <br>
+            <input class="btn" type="button" value="showAllData" onclick="showAll()" />
+            <!-- <input type="button" value="Delete" onclick="removed()" /> -->
+
+
+
+        </center>
+    </div>
+    <script>
+
+        readTasks();
+        showTodo();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

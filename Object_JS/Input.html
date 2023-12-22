@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <script>
+        var n = 0;
+
+        function fDelete() {
+            localStorage.removeItem("data");
+            alert("Delete");
+        }
+
+
+        function fSave() {
+            const data=document.getElementById("txt").value;
+            localStorage.setItem("data", data);
+
+            alert("Save");
+        }
+
+
+        function fSearch() {
+
+            const data = localStorage.getItem("data");
+            document.getElementById("txt").value = data;
+            alert("Search");
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <center>
+        Input: <input id="txt" type="text" />
+        <br><br>
+        <button type="button" onclick="fSearch()">Search</button>
+        <br><br>
+        <button type="button" onclick="fDelete()"> Delete</button>
+        <br><br>
+        <button type="button" onclick="fSave()">Save</button>
+    </center>
+</body>
+
+</html>

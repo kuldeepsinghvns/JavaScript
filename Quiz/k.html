@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBC</title>
+    <title>Demo</title>
     <script>
         let num = 0;
         let result;
@@ -127,64 +127,6 @@
         }
         const prizes = [5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 125000, 250000, 500000, 1000000, 3000000, 5000000, 7000000]
 
-        // let n = 0;
-        // let timerx;
-        // let timeallowed = 10;
-        // function f() {
-        //     n++;
-        //     document.title = n;
-        //     if (n > 10) {
-        //         clearInterval(timerx);
-        //         alert("Time Over");
-        //         location = "Gameover.html";
-        //         return;
-        //     }
-        // }
-        // function startTimer() {
-        //     timerx = setInterval("f()", 1000);
-        // }
-
-
-
-
-
-        // }
-        //Speak Function //
-
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Check if the browser supports the Web Speech API
-            if ('speechSynthesis' in window) {
-                // Create a new SpeechSynthesisUtterance
-                var message = new SpeechSynthesisUtterance('{{question}} and your option are: a, {{a}}, b, {{b}}, c, {{c}}, d, {{d}}');
-
-                // Set voice options (optional)
-                message.voice = speechSynthesis.getVoices()[0]; // You can choose a specific voice
-                message.rate = 1; // Speed of speech (0.1 to 10)
-                message.pitch = 3; // Pitch of speech (0 to 2)
-
-                var speakButton = document.getElementById('speakButton');
-
-                speakButton.addEventListener('click', function () {
-                    // Speak the text when the button is clicked
-                    window.speechSynthesis.speak(message);
-                });
-            } else {
-                console.error('Speech synthesis is not supported in this browser.');
-            }
-        });
-        function amitabh() {
-            var message = new SpeechSynthesisUtterance("{{question}} and your option are: a, {{a}}, b, {{b}}, c, {{c}}, d, {{d}} ");
-            // Set voice options (optional)
-            message.voice = speechSynthesis.getVoices()[0]; // You can choose a specific voice
-            message.rate = 1; // Speed of speech (0.1 to 10)
-            message.pitch = 3; // Pitch of speech (0 to 2)
-            window.speechSynthesis.speak(message);
-            console.log("Done");
-        }
-        window.onload(amitabh());
-        amitabh();
-
     </script>
     <style>
         .currentprize {
@@ -217,6 +159,9 @@
             background-color: #e0ffff;
             color: coral;
         }
+        /* .opt:hover{
+            background-color: #00ff7f;
+        } */
 
         .table {
             background-color: #f0fff0;
@@ -233,14 +178,13 @@
         .btn:hover {
             background-color: #e6e6fa;
         }
-
-        .timer {
+        .timer{
             background-color: #e0ffff;
             border-radius: 50px;
             border-style: ridge;
             border-color: #ee3d3d;
             width: 100px;
-
+            
         }
     </style>
 
@@ -251,23 +195,21 @@
 <body>
 
     <center>
-        <table border="1" class="table">
+        <table border="1" class="table"  >
 
-            <tr>
-
+            <tr >
+                
                 <td colspan="5" class="h1">
                     <center>
                         <h1>KBC</h1>
-                        <p>
-                        <h1 class="timer" id="timer">00</h1>
-                        </p>
+                        <p  ><h1  class="timer" id="timer">00</h1></p>                     
                     </center>
-
+                    
                 </td>
-
-                <td rowspan="10" class="pz">
+                
+                <td rowspan="10"  class="pz">
                     <center>
-                        <table>
+                        <table >
                             <tr>
                                 <td>
                                     <h4>8 -</h4>
@@ -356,8 +298,8 @@
                     </center>
 
                 </td>
-
-                <td rowspan="10" class="pz">
+            
+                <td rowspan="10"  class="pz">
                     <center>
                         <table>
                             <tr>
@@ -437,7 +379,7 @@
                                     </h4>
                                 </td>
                             </tr>
-
+                            
 
 
                         </table>
@@ -449,18 +391,14 @@
             <tr>
 
                 <td style="background-image: url('../pics/');" colspan="2" rowspan="20" class="que">
-                    <h2>
-                        <center>Question :</center>
-                    </h2>
+                    <h2><center>Question :</center></h2>
                     <h3>
-                        <center>
-                            <p id="qno"></p>
-                        </center>
+                        <center><p id="qno"></p></center>
                     </h3>
                 </td>
 
             </tr>
-
+               
 
             <tr class="opt">
 
@@ -476,13 +414,11 @@
             <tr>
                 <td colspan="2" align="center"><button id="onclick" type="submit" class="btn"
                         onclick="NextQuestion()">Submit</button>
-                    <button id="speakButton" class="btn" type="button" onclick="amitabh()">Speak</button>
                 </td>
 
             </tr>
 
         </table>
-        <script>startTimer()</script>
 
         <input id="default" name="opt" type="radio" style="display: none;" value="">
 

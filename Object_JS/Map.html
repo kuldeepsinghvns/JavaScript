@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <script>
+        let Numbers = [1, 2, 3, 4, 5];
+
+        let squres = Numbers.map(num => num * num);
+        console.log(squres);
+
+        let people = [
+            { name: "a", age: "24" },
+            { name: "b", age: "20" },
+            { name: "c", age: "30" }
+
+        ];
+        let names = people.map(pe => pe.name);
+        let ages = people.map(as => as.age);
+        console.log(names, ages);
+
+
+        let students = [
+            { name: "Jetha", grade: "A" },
+            { name: "Popat", grade: "B" },
+            { name: "Bhide", grade: "C" },
+            { name: "sachin", grade: "A" }
+        ];
+        let grades = students.map(student => {
+            return {
+                name: student.name,
+                grade: student.grade === "A" ? "Excellent" :
+                    student.grade === "B" ? "Good" :
+                        student.grade === "C" ? "Average" :
+                            "Poor"
+            };
+        });
+        console.log(grades);
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
