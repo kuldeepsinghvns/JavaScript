@@ -97,6 +97,7 @@
     }
     function readTasks() {
         let newtasks = localStorage.getItem("tasks");
+        if(newtasks!=null)
         tasks = JSON.parse(newtasks);
         console.log(newtasks);
     }
