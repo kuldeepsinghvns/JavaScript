@@ -208,7 +208,7 @@
         // console.log(filterTask);
         const searchValue = document.getElementById("searchInput").value;
         // let searchTask= text.indexOf();
-        
+
         console.log(`Searching ${searchValue}`);
         showTodo();
 
@@ -227,12 +227,12 @@
 
 
             const searchValue = document.getElementById("searchInput").value;
-            searchValue=searchValue.trim();
+            searchValue = searchValue.trim();
             console.log(`Showing search value ${searchValue}`);
 
-            if((searchValue=="") || (searchValue.indexOf(task.taskname)>=0))
-            
-            table += `<tr> <th>${i + 1}</th><th style="${rowstyle}">${task.taskname}</th><th style=${rowstyle} >${task.taskdate}</th><th><button class="onclick"  onClick="Status(${i})">${task.status}</button></th><th><button class="delete" onClick="removed(${i})"> Delete</button></th></tr>\n`;
+            // if((searchValue=="") || (searchValue.indexOf(task.taskname)>=0))
+            if ((searchValue.indexOf(task.taskname) >= 0))
+                table += `<tr> <th>${i + 1}</th><th style="${rowstyle}">${task.taskname}</th><th style=${rowstyle} >${task.taskdate}</th><th><button class="onclick"  onClick="Status(${i})">${task.status}</button></th><th><button class="delete" onClick="removed(${i})"> Delete</button></th></tr>\n`;
             // alert();
 
         }
@@ -284,8 +284,8 @@
             <br>
             <div class="row box">
                 <div class="col-md-12">
-                    <h3> Search Task </h3> <input onchange="SearchTask()"  onkeyup="SearchTask()"  onblur="SearchTask()" class="input " type="text" id="searchInput"
-                        placeholder="Search here..." />
+                    <h3> Search Task </h3> <input onchange="SearchTask()" onkeyup="SearchTask()" onblur="SearchTask()"
+                        class="input " type="text" id="searchInput" placeholder="Search here..." />
                     <br><br>
 
                     <button class="btn" type="button" onclick="SearchTask()">
