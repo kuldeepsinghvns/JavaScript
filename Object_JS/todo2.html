@@ -4,25 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <link rel="icon" type="image/x-icon" href="../pics/todo2.jpg">
+    <title>Todo List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
-        .btn {
-            background-color: rgba(64, 225, 118, 0.582);
+        /* Animation */
+
+        .spin {
+            position: static;
+            left: 20px;
+            top: 100%;
+            width: 200px;
+            /* height: 80px; */
+            /* border-radius: 50px;
+            background-color: rgb(255, 0, 195); */
+            animation-name: spin;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            /* animation-direction: alternate; */
+            animation-fill-mode: both;
+
+
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate3d(0, 1, 0, 0deg);
+                opacity: 10%;
+
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, 360deg);
+                opacity: 100%;
+
+            }
+        }
+
+
+
+
+
+        body {
+            background-color: #e0ffff;
+        }
+
+        .todo {
+            margin-top: 10px;
+            background-color: #ff69b4;
+            border-style: solid;
+            border-color: 5px #e0ffff;
+            color: azure;
+            box-shadow: 0px 13px 30px rgba(132, 98, 98, 0.856);
+        }
+
+        .box {
+            background-color: white;
+            box-shadow: 0px 13px 30px rgba(108, 105, 105, 0.544);
+            border-radius: 5px;
+
+
+
+        }
+
+        .onclick {
+            background-color: #53d769;
+            color: black;
+            font-size: 100%;
             border-radius: 50px;
 
+
+
+
+        }
+
+        .delete {
+            background-color: #fc3d39;
+            border-radius: 30px;
+            font-size: 100%;
+            color: white;
+
+        }
+
+
+        .btn {
+            background-color: rgba(14, 235, 87, 0.582);
+            width: 100%;
+            color: black;
+            font-style: normal;
+            font-size: larger;
+            box-shadow: 0px 13px 30px rgba(108, 105, 105, 0.544);
+
+
+        }
+
+        .btn:hover {
+            background-color: red;
+            box-shadow: 0px 13px 30px rgba(108, 105, 105, 0.544);
+            font-style: normal;
+            font-size: larger;
         }
 
         table {
-            background-color: rgba(0, 255, 255, 0.251);
-            border-color: rgb(247, 12, 12);
+            background-color: #87cbf2;
+            width: 100%;
+            box-shadow: 0px 3px 20px rgba(108, 105, 105, 0.544);
 
         }
 
+
         .input {
-            background-color: rgb(232, 215, 203);
+            background-color: azure;
+            width: 100%;
+            height: 25%;
+            border-radius: 5px;
+            border-style: solid;
         }
     </style>
 </head>
@@ -37,22 +136,29 @@
     }
     function readTasks() {
         let newtasks = localStorage.getItem("tasks");
-        tasks = JSON.parse(newtasks);
+        if (newtasks != null)
+            tasks = JSON.parse(newtasks);
         console.log(newtasks);
     }
     function addTask() {
 
         let newtask = getTodo();
-        tasks.push(newtask);
-        saveTasks();
+        if (newtask.taskname.trim() !== "") {
+            tasks.push(newtask);
+            saveTasks();
+        } else {
+            alert("Please type your task !");
+        }
+
 
     }
 
     function getTodo() {
         const taskname = document.getElementById("txt1").value;
         const taskdate = document.getElementById("txt2").value;
+        const searchInput = document.getElementById("searchInput").value;
 
-        const task = { "taskname": taskname, "taskdate": taskdate, "status": "Pending" };
+        const task = { "taskname": taskname, "taskdate": taskdate, "status": "Pending", "searchInput": searchInput };
         return task;
     }
     function showAll() {
@@ -82,7 +188,7 @@
 
     function Status(position) {
         if (tasks[position].status === "Pending") {
-            tasks[position].status = "Complete";
+            tasks[position].status = "Completed";
             saveTasks();
 
         }
@@ -94,25 +200,32 @@
 
     }
 
+    function SearchTask() {
+        // const searchItem = document.getElementById(searchInput);
+        // const filterTask = tasks.filter(task => task.taskname.includes(searchItem));
+        // tasks = filterTask;
+        // // showTodo();
+        // console.log(filterTask);
+        const searchValue = document.getElementById("searchInput").value;
+        console.log(`Searching ${searchValue}`);
+
+    }
+
     function showTodo() {
         const tbl = document.getElementById("tbl");
-        let table = "<table border='1'>\n<tr><th>SNo</th><th>Task</th><th>Date</th><th>Status</th><th></th></tr>\n";
+        let table = "<table border='1'>\n<tr><th>SNo.</th><th>Task</th><th>Date</th><th>Status</th><th></th></tr>\n";
         let i;
         for (i = 0; i <= tasks.length - 1; i++) {
             let task = tasks[i];
-            let rowstyle = "background-color:red;"
+            let rowstyle = "background-color:#00fa9a;"
+
+            if (task.status == "Completed")
+                rowstyle = "background-color:#adff2f; text-decoration: line-through;";
 
 
-
-
-            if (task.status == "Complete")
-                rowstyle = "background-color:green ;"
-
-
-
-
-
-            table += `<tr style=${rowstyle}> <th>${i + 1}</th><th>${task.taskname}</th><th>${task.taskdate}</th><th><button onClick="Status(${i})">${task.status}</button></th><th><button onClick="removed(${i})"> Delete</button></th></tr>\n`;
+            const searchValue = document.getElementById("searchInput").value;
+            
+            table += `<tr> <th>${i + 1}</th><th style="${rowstyle}">${task.taskname}</th><th style=${rowstyle} >${task.taskdate}</th><th><button class="onclick"  onClick="Status(${i})">${task.status}</button></th><th><button class="delete" onClick="removed(${i})"> Delete</button></th></tr>\n`;
             // alert();
 
         }
@@ -127,35 +240,54 @@
 <body>
     <div class="container ">
         <center>
-            <div class="row">
-                <!-- <div class="col-md-12"><center><h1>Todo List</h1></center></div> -->
-            </div>
-            <div class="row">
+            <div class="row todo">
                 <div class="col-md-12">
-                    A: <input class="input form-control" type="text" value="" id="txt1" />
+                    <center>
+                        <h1 class="spin">Todo List</h1>
+                    </center>
+                </div>
+            </div>
+            <br>
+            <div class="row box">
+                <div class="col-md-12">
+                    <h3>AddTodo :</h3> <input class="input " type="text" value="" id="txt1"
+                        placeholder="Type Todo here..." />
+                    <br>
+                    <h3>Time :</h3> <input class="input" type="datetime-local" value="" id="txt2" />
+                    <br><br><br>
 
-                    B: <input class="input form-control" type="datetime-local" value="" id="txt2" />
+
                 </div>
 
             </div>
             <br>
+            <div class="row ">
+                <div class="col-md-12">
+                    <button class="btn" type="button" onclick="addTask()">
+                        <h5>AddTask</h5>
+                    </button>
+                </div>
+            </div>
+            <br>
             <div class="row">
-                <div id="tbl" class="col-md-12 form-control">
+                <div id="tbl" class="col-md-12 form-control box">
                     Todo
                 </div>
+            </div>
+            <br>
+            <div class="row box">
+                <div class="col-md-12">
+                    <h3> Search Task </h3> <input class="input " type="text" id="searchInput"
+                        placeholder="Search here..." />
+                    <br><br>
+
+                    <button class="btn" type="button" onclick="SearchTask()">
+                        <h5>Search</h5>
+                    </button>
+                    <br><br>
+                </div>
 
             </div>
-
-
-
-            <br>
-            <input class="btn" type="button" value="AddTask" onclick="addTask()" />
-            <br>
-            <br>
-            <input class="btn" type="button" value="showAllData" onclick="showAll()" />
-            <!-- <input type="button" value="Delete" onclick="removed()" /> -->
-
-
 
         </center>
     </div>
