@@ -207,7 +207,7 @@
         // // showTodo();
         // console.log(filterTask);
         const searchValue = document.getElementById("searchInput").value;
-        let searchTask= text.indexOf();
+        // let searchTask= text.indexOf();
         
         console.log(`Searching ${searchValue}`);
 
@@ -281,7 +281,7 @@
             <br>
             <div class="row box">
                 <div class="col-md-12">
-                    <h3> Search Task </h3> <input class="input " type="text" id="searchInput"
+                    <h3> Search Task </h3> <input onchange="SearchTask()"  onkeyup="SearchTask()"  onblur="SearchTask()" class="input " type="text" id="searchInput"
                         placeholder="Search here..." />
                     <br><br>
 
