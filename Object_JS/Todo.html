@@ -228,7 +228,7 @@
 
             let searchValue = document.getElementById("searchInput").value;
             searchValue = searchValue.trim();
-            console.log(`Showing search value ${searchValue}`);
+            console.log(`Showing search value ${searchValue} ${task.taskname}  ${searchValue.indexOf(task.taskname)}`);
 
             // if((searchValue=="") || (searchValue.indexOf(task.taskname)>=0))
             if ((searchValue.indexOf(task.taskname) >= 0))
