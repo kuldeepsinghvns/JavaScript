@@ -228,10 +228,10 @@
 
             let searchValue = document.getElementById("searchInput").value;
             searchValue = searchValue.trim();
-            console.log(`Showing search value ${searchValue} ${task.taskname}  ${searchValue.indexOf(task.taskname)}`);
+            console.log(`Showing search value ${searchValue} ${task.taskname}  ${task.taskname.indexOf(searchValue)}`);
 
             // if((searchValue=="") || (searchValue.indexOf(task.taskname)>=0))
-            if ((searchValue.indexOf(task.taskname) >= 0))
+            if ((task.taskname.indexOf(searchValue) >= 0))
                 table += `<tr> <th>${i + 1}</th><th style="${rowstyle}">${task.taskname}</th><th style=${rowstyle} >${task.taskdate}</th><th><button class="onclick"  onClick="Status(${i})">${task.status}</button></th><th><button class="delete" onClick="removed(${i})"> Delete</button></th></tr>\n`;
             // alert();
 
