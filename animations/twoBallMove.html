@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball Move</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .c {
+            top: 0;
+            left: 35%;
+            bottom: 0;
+            margin: auto;
+            height: 50%;
+            width: 26%;
+            border: solid 1px #ADFF2F;
+            border-radius: 100%;
+            animation-name: c;
+            position: absolute;
+            /* background-color: aqua; */
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+
+        }
+
+
+
+        .ball1 {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            height: 30px;
+            width: 30px;
+            margin: auto;
+            border-radius: 100px;
+            background-color: red;
+            position: absolute;
+            animation-name: ball1;
+            animation-duration: 3s;
+            -webkit-animation: ball1 3s linear infinite;
+            animation: ball1 3s linear;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            /* animation-fill-mode: both; */
+        }
+
+        @-webkit-keyframes ball1 {
+            0% {
+                transform: rotate(10deg)translate(-165px) rotate(0deg);
+            }
+
+            100% {
+
+                transform: rotate(170deg) translate(-165px)rotate(-170deg);
+                
+            }
+
+            /* 100% {
+
+                transform: rotate(360deg) translate(-165px)rotate(-360deg);
+            } */
+        }
+
+
+
+        .ball2 {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+            margin: auto;
+            height: 30px;
+            width: 30px;
+            border-radius: 100px;
+            background-color: green;
+            position: absolute;
+            animation-name: ball2;
+            -webkit-animation: ball2 3s linear infinite;
+            animation: ball2 3s linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            /* animation-fill-mode: both; */
+        }
+
+        @-webkit-keyframes ball2 {
+
+
+            0% {
+
+                transform: rotate(360deg) translate(-165px)rotate(-360deg);
+            }
+
+            100% {
+                transform: rotate(180deg)translate(-165px) rotate(180deg);
+            }
+            /* 100% {
+                transform: rotate(0deg)translate(-165px) rotate(0deg);
+            } */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="c">
+        <div class="ball1"></div>
+        <div class="ball2"></div>
+    </div>
+
+
+</body>
+
+</html>
