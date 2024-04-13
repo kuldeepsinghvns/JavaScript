@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Box Slide</title>
+
+    <script>
+        var x=1;
+        var loop;
+        var n=0;
+        leftpos=0;
+        rightpos=0;
+
+
+        function startCount(){
+            loop= setInterval(f1,10);
+        }
+
+        function stopCount(){
+            clearInterval(loop);
+        }
+        function f1(){
+            n++;
+            document.getElementById("div1").style.left=leftpos + "px";
+            document.getElementById("div2").style.right=rightpos + "px";
+            leftpos=leftpos+x;
+            rightpos=rightpos+x;
+            if(leftpos>1300){
+                clearInterval(loop);
+            }
+        }
+
+
+
+
+
+
+    </script>
+
+    <style>
+        .set{
+            position: absolute;
+            background-color: red;
+            border: 2px solid black;
+            height: 300px;
+            width: 150px;
+            left: 50px;
+        }
+        .set2{
+            position: absolute;
+            background-color: darkorange;
+            border: 2px solid black;
+            height: 300px;
+            width: 150px;
+            right: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1" class="set">Div1</div>
+<div id="div2" class="set2">Div2</div>
+
+<div><input type="button" value="start" onclick="startCount()"></div><br>
+<div><input type="button" value="stop" onclick="stopCount()"></div>
+
+   
+</body>
+</html>
