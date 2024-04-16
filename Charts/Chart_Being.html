@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <title>Show Data</title>
+</head>
+
+<body>
+  <canvas id="myChart" style="width: 100%; max-width: 700px;"></canvas>
+  <script>
+    async function fetchdata() {
+      try {
+        const response = await fetch('https://gist.githubusercontent.com/kuldeepsinghvns/14be47adee303aa32faeb71f7edf733f/raw/94ba2549b7d44fd93055bd28c212b7e0116cac45/score');
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.error("Data Not found", error);
+        return null;
+      }
+    }
+
+    async function showdata() {
+      const data = await fetchdata();
+      if (!data) return;
+      const labels = data.Months;
+      const selldata = data.Sell;
+
+
+      new Chart("myChart", {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Sell',
+            data: selldata,
+            borderColor: 'red',
+            backgroundColor: 'yellow',
+            borderWidth: 2,
+            borderSkipped: false,
+          }
+          ]
+        },
+        Options: {}
+      });
+    }
+
+    showdata();
+  </script>
+</body>
+
+</html>
