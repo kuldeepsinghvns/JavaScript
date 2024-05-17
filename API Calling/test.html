@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<script>
+    function create(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        // Get form data
+        const formData = new FormData(event.target);
+        const data = {
+            name: formData.get('name'),
+            username: formData.get('username'),
+            password: formData.get('password')
+        };
+
+        // Send a POST request to the API
+        fetch('http://mrghazipur.in/api/registation', {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+            // Handle success (e.g., show a success message, clear the form, etc.)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle error (e.g., show an error message)
+        });
+    }
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="get" onsubmit="create(event)">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

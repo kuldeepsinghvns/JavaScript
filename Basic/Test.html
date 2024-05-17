@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Api</title>
+</head>
+
+<body>
+    <script>
+        const employeedata = [
+            {
+                "name": "Shubham",
+                "job_title": "App Devloper",
+                "city": "Varanasi"
+            },
+            {
+                "name": "Sachin",
+                "job_title": "App Devloper",
+                "city": "Varanasi"
+            },
+            {
+                "name": "Aman",
+                "job_title": "Web Devloper",
+                "city": "Delhi"
+            },
+            {
+                "name": "Shivam",
+                "country": "India",
+                "job_title": "Devloper"
+            }
+        ];
+
+        function getdata() {
+            const dataString = JSON.stringify(employeedata);
+            const data = JSON.parse(dataString);
+
+            const getDiv = document.getElementById('get');
+
+            let html = "";
+            data.forEach(obj => {
+                html += "name:" + obj.name + "," + "Job_Title:" + obj.job_title + "," + "City:" + (obj.city ? obj.city : "") + (obj.country ? obj.country : "") + "<br>";
+            });
+            getDiv.innerHTML = html;
+        }
+    </script>
+    <button onclick="getdata()"> click</button>
+    <div id="get"></div>
+
+</body>
+
+</html>

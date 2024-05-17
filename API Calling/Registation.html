@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registation Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="get" id="da">
+                    <label>Name</label>
+                    <input type="text" name="name">
+                    <label>UserName</label>
+                    <input type="text" name="username">
+                    <label>Password</label>
+                    <input type="text" name="password">
+                    <input type="submit" name="submit">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('da').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const insertss = new URLSearchParams(formData);
+            try {
+    
+                const response = await fetch(`http://mrghazipur.in/api/registation?${insertss.toString()}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+                const result = await response.json();
+                console.log('success:', result);
+                alert('Registration successful');
+            } catch (error) {
+                console.error('error', error);
+                alert('Registration failed');
+            }
+        });
+    
+    
+    </script>
+    
+
+</body>
+
+</html>
