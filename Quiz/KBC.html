@@ -266,38 +266,35 @@
         //Speak Function //
 
 
+       
         document.addEventListener('DOMContentLoaded', function () {
             // Check if the browser supports the Web Speech API
             if ('speechSynthesis' in window) {
-                // Create a new SpeechSynthesisUtterance
-                var message = new SpeechSynthesisUtterance('{{question}} and your option are: a, {{a}}, b, {{b}}, c, {{c}}, d, {{d}}');
-
-                // Set voice options (optional)
-                message.voice = speechSynthesis.getVoices()[0]; // You can choose a specific voice
-                message.rate = 1; // Speed of speech (0.1 to 10)
-                message.pitch = 3; // Pitch of speech (0 to 2)
-
                 var speakButton = document.getElementById('speakButton');
-
                 speakButton.addEventListener('click', function () {
-                    // Speak the text when the button is clicked
-                    window.speechSynthesis.speak(message);
+                    amitabh();
                 });
             } else {
                 console.error('Speech synthesis is not supported in this browser.');
             }
         });
+
         function amitabh() {
-            var message = new SpeechSynthesisUtterance("{{question}} and your option are: a, {{a}}, b, {{b}}, c, {{c}}, d, {{d}} ");
+            if (qno === 0) return; // If no question has been loaded yet, do nothing
+            let question = questions[qno - 1].question;
+            let a = questions[qno - 1].a;
+            let b = questions[qno - 1].b;
+            let c = questions[qno - 1].c;
+            let d = questions[qno - 1].d;
+            var message = new SpeechSynthesisUtterance(`Your question is ${question}. Options are: a. ${a}, b. ${b}, c. ${c}, d. ${d}.`);
+
             // Set voice options (optional)
             message.voice = speechSynthesis.getVoices()[0]; // You can choose a specific voice
             message.rate = 1; // Speed of speech (0.1 to 10)
-            message.pitch = 3; // Pitch of speech (0 to 2)
+            message.pitch = 1; // Pitch of speech (0 to 2)
             window.speechSynthesis.speak(message);
             console.log("Done");
         }
-        window.onload(amitabh());
-        amitabh();
 
     </script>
     <style>
@@ -597,7 +594,7 @@
 
         </table>
         <script>startTimer()</script>
-        <!-- <script>amitabh()</script> -->
+        <script>amitabh()</script>
         <input id="default" name="opt" type="radio" style="display: none;" value="">
 
     </center>
