@@ -6,6 +6,7 @@ button{
 .col{
     background-color: #FFA500;
 }
+
 .button{
     background-color: white;
     color: 2px black;
@@ -14,7 +15,13 @@ button{
     margin-top: 5px;
     border-radius: 100px;
     border: solid #FFA500;
+    
   
+}
+.button:hover{
+    background-color: #F4A460;
+    color: whitesmoke;
+    box-shadow: 2px 3px 5px;
 }
 
 .rr{
@@ -23,4 +30,17 @@ button{
 input{
     border: solid 2px black;
     
+}
+.cc{
+    background-color: antiquewhite;
+    box-shadow: 16px 16px 16px 2px rgb(140, 118, 118);
+}
+.head{
+    background-color: #6495ED;
+    border: solid rgb(226, 202, 43) 2px;
+    box-shadow: 8px 8px 10px #778899 ;
+
+}
+.cal{
+    text-shadow: 2px 3px 2px whitesmoke;
 }

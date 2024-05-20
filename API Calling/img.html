@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>API Example</h1>
+    <h1>Image API Example</h1>
 
     <div id="info"></div>
     <script>
@@ -25,12 +25,9 @@
                 .then(data => {
                     console.log(data);
                     const Div = document.getElementById('info');
-                    Div.innerHTML = `
-                        <h2>${data[0].id}</h2>
-                        <ul> 
-                            <li>Taskname: ${data[0].id}</li>
-                            <li><img src="${data[0].url}" alt="Image"></li>
-                        </ul>
+                    Div.innerHTML = `             
+                            Taskname: ${data[0].id}
+                            <img src="${data[0].url}" alt="Image"style="height:500px;">      
                     `;
                     console.log(data.taskname);
                 })
