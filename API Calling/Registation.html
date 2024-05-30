@@ -45,6 +45,7 @@
                 const result = await response.json();
                 console.log('success:', result);
                 alert('Registration successful');
+                event.target.reset();
             } catch (error) {
                 console.error('error', error);
                 alert('Registration failed');

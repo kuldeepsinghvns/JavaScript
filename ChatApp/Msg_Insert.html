@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="InsertMsg.css">
+
+</head>
+
+
+<body>
+    <div class="container">
+
+        <br>
+        <div class="row">
+
+            <div class="col-md-3"></div>
+            <div class="col-md-6 justify-content-center bb">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1 class="reg">
+                            <Center>Message</Center>
+                        </h1>
+                    </div>
+                    <div class="col-md-2"><button id="logout-button" class="btn btn-danger">Logout</button></div></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12" id="error-message" style="color: red; display: none;"></div>
+                </div>
+                <form action="" method="get" id="da">
+                    <!-- <label>Sender</label> -->
+                    <input type="text" name="frommsg"  id="frommsg" required class="form-control" style="display: none;">
+                    <br>
+                    <label>Receiver</label>
+                    <input type="text" name="tomsg" required class="form-control">
+                    <br>
+                    <label>Message</label>
+                    <input type="text" name="msg" required class="form-control">
+                    <br>
+                    <input type="submit" value="Send">
+                </form>
+
+                <br>
+
+                <!-- <iframe src="Show_Msg.html"></iframe> -->
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="intro">
+
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('da').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const insertss = new URLSearchParams(formData);
+            try {
+
+                const response = await fetch(`http://mrghazipur.in/api/msginsert?${insertss.toString()}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || result.status === 'failed') {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                // Success logic
+                console.log('success:', result);
+                // localStorage.setItem('username', result.username);
+                document.getElementById('error-message').innerText = "Send Message Successful";
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-message').style.color = 'green';
+                alert('Send Message successful');
+
+
+
+            } catch (error) {
+                console.error('error', error);
+                document.getElementById('error-message').innerText = "Please Inter valid Receiver";
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-message').style.color = 'red';
+                alert("Sending Message Failed");
+            }
+
+        });
+
+        //// Get LocalStorage UserName
+
+        function GetUserName(){
+            let username = localStorage.getItem('username')
+            console.log(username);
+            document.getElementById('frommsg').value=username;
+            if(!username){
+                window.location.href='Login.html';
+               
+            }
+        };
+        document.getElementById('logout-button').addEventListener('click', function () {
+            localStorage.removeItem('username');
+            window.location.href = 'Login.html';
+        });
+
+
+    </script>
+    <script>
+        function getInfo3() {
+            console.log("Running");
+            fetch('http://mrghazipur.in/api/msgshow')
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .then(data => {
+
+                    let arr = data;
+                    let n = arr.length;
+
+                    const Div = document.getElementById('intro');
+
+                    let table = '<table>';
+                    table += '<tr><th>Sender</th><th>Receiver</th><th>Message</th></tr>';
+                    for (let i = 0; i <= n - 1; i++) {
+                        // console.log(arr[i].name);
+                        table += `<tr><td>${arr[i].frommsg}</td><td>${arr[i].tomsg}</td><td>${arr[i].msg}</td></tr>`;
+                    }
+
+                    table += '</table>';
+                    // alert(table);
+
+                    // Insert the table into the Div
+                    Div.innerHTML = table;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        // Call the function to fetch and display the data
+
+    </script>
+
+    <script>getInfo3();</script>
+    <script>GetUserName();</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

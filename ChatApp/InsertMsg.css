@@ -1,0 +1,30 @@
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            border: 1px solid black;
+
+
+        }
+
+
+        th,
+        td {
+            border: 1px solid black;
+            background-color: rgba(214, 143, 117, 0.82);
+            color: white;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+            color: whitesmoke;
+            background-color: cadetblue;
+        }
+
+        td:hover {
+            background-color: #FFE4E1;
+            color: blueviolet;
+        }
+    
