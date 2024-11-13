@@ -81,7 +81,7 @@ function startWatching() {
         document.getElementById("place-name").textContent = placeName;
         // Calculate distance
         // const distance = calculateDistance(lastLatitude,lastLongitude,latitude,longitude);
-        const distance = calculateDistance(25.3492126,83.0010877,latitude,longitude);
+        const distance = calculateDistance(25.3492171,83.0010805,latitude,longitude);
         document.getElementById("kilometers").textContent =distance.toFixed(2) + " km";
 
         // Speak the place name if it has changed
