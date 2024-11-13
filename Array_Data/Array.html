@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputdata">
+    <input type="button" value="submit" onclick="adddata()">
+    <h4>Array Data</h4>
+    <ul id="dataarray"></ul>
+
+    <script>
+        let data = [];
+        function adddata() {
+            const arraydata = document.getElementById("inputdata").value;
+            console.log(arraydata);
+            // save data in array
+            data.push(arraydata);
+
+            const savedata = JSON.stringify(data);
+            localStorage.setItem("data", savedata);
+
+            // clear input box
+            document.getElementById("inputdata").value = "";
+            displaydata();
+        }
+
+        function displaydata() {
+            const list = document.getElementById("dataarray");
+            list.innerHTML = "";
+
+            data.forEach((item) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = item;
+                // console.log(listItem);
+                list.appendChild(listItem);
+            });
+
+
+        }
+    </script>
+
+</body>
+
+</html>
