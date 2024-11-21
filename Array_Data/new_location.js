@@ -63,60 +63,52 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 }
 
 function startWatching() {
-  if (navigator.geolocation) {
-    watchId = navigator.geolocation.watchPosition(
-      async function (position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-
-        document.getElementById("latitude").textContent = latitude;
-        document.getElementById("longitude").textContent = longitude;
-
-        const placeName = await fetchPlaceName(latitude, longitude);
-        document.getElementById("place-name").textContent = placeName;
-
-        // Get the destination coordinates from the input fields
-        const destinationLat = parseFloat(
-          document.getElementById("destination-lat").value
-        );
-        const destinationLon = parseFloat(
-          document.getElementById("destination-lon").value
-        );
-
-        // Ensure that both input fields have valid values before calculating distance
-        if (!isNaN(destinationLat) && !isNaN(destinationLon)) {
-          const distance = calculateDistance(
-            destinationLat,
-            destinationLon,
-            latitude,
-            longitude
-          );
-          document.getElementById("kilometers").textContent =
-            distance.toFixed(2) + " km";
-          // Check if the distance is less than 100 meters (0.1 km)
-          if (distance < 0.1) {
-            alert("You are less than 100 meters away from the destination!");
+    if (navigator.geolocation) {
+      watchId = navigator.geolocation.watchPosition(
+        async function (position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+  
+          document.getElementById("latitude").textContent = latitude;
+          document.getElementById("longitude").textContent = longitude;
+  
+          const placeName = await fetchPlaceName(latitude, longitude);
+          document.getElementById("place-name").textContent = placeName;
+  
+          // Get the destination coordinates from the input fields
+          const destinationLat = parseFloat(document.getElementById('destination-lat').value);
+          const destinationLon = parseFloat(document.getElementById('destination-lon').value);
+  
+          // Ensure that both input fields have valid values before calculating distance
+          if (!isNaN(destinationLat) && !isNaN(destinationLon)) {
+            const distance = calculateDistance(destinationLat, destinationLon, latitude, longitude);
+            document.getElementById("kilometers").textContent = distance.toFixed(2) + " km";
+  
+            // If the distance is less than 0.1 km (100 meters), show an alert
+            if (distance < 0.1) {
+              alert("You are within 100 meters of the destination!");
+            }
+          } else {
+            document.getElementById("kilometers").textContent = "-";
           }
-        } else {
-          document.getElementById("kilometers").textContent = "-";
+  
+          // Speak the place name if it has changed
+          if (placeName !== lastPlaceName) {
+            speak(placeName);
+            getstoragedata();
+            savetolocalstorage(pkey, placeName, latitude, longitude);
+            lastPlaceName = placeName; // Update the last spoken place name
+          }
+        },
+        function (error) {
+          alert("Error retrieving location: " + error.message);
         }
-
-        // Speak the place name if it has changed
-        if (placeName !== lastPlaceName) {
-          speak(placeName);
-          getstoragedata();
-          savetolocalstorage(pkey, placeName, latitude, longitude);
-          lastPlaceName = placeName; // Update the last spoken place name
-        }
-      },
-      function (error) {
-        alert("Error retrieving location: " + error.message);
-      }
-    );
-  } else {
-    alert("Geolocation is not supported by this browser.");
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
   }
-}
+  
 
 // Optionally stop watching if needed
 function stopWatching() {
