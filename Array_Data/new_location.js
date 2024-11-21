@@ -76,13 +76,27 @@ function startWatching() {
         document.getElementById("place-name").textContent = placeName;
 
         // Get the destination coordinates from the input fields
-        const destinationLat = parseFloat(document.getElementById('destination-lat').value);
-        const destinationLon = parseFloat(document.getElementById('destination-lon').value);
+        const destinationLat = parseFloat(
+          document.getElementById("destination-lat").value
+        );
+        const destinationLon = parseFloat(
+          document.getElementById("destination-lon").value
+        );
 
         // Ensure that both input fields have valid values before calculating distance
         if (!isNaN(destinationLat) && !isNaN(destinationLon)) {
-          const distance = calculateDistance(destinationLat, destinationLon, latitude, longitude);
-          document.getElementById("kilometers").textContent = distance.toFixed(2) + " km";
+          const distance = calculateDistance(
+            destinationLat,
+            destinationLon,
+            latitude,
+            longitude
+          );
+          document.getElementById("kilometers").textContent =
+            distance.toFixed(2) + " km";
+          // Check if the distance is less than 100 meters (0.1 km)
+          if (distance < 0.1) {
+            alert("You are less than 100 meters away from the destination!");
+          }
         } else {
           document.getElementById("kilometers").textContent = "-";
         }
