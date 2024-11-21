@@ -10,7 +10,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+  
     body {
       font-family: Arial, sans-serif;
       display: flex;
@@ -21,23 +21,34 @@
       background-color: #f0f4f8;
       color: #333;
     }
-
+  
     h1 {
       color: #0056b3;
       font-size: 2em;
       margin-bottom: 20px;
     }
-
+  
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+  
+    .inputs label {
+      font-size: 1.1em;
+      color: #003f7f;
+    }
+  
     .inputs input {
-      margin: 5px;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 1em;
-      width: calc(100% - 30px);
+      width: 100%;
       max-width: 300px;
     }
-
+  
     button {
       padding: 12px 24px;
       margin-top: 20px;
@@ -45,15 +56,15 @@
       color: white;
       border: none;
       border-radius: 5px;
-      font-size: 1em;
+      font-size: 1.2em;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
+  
     button:hover {
       background-color: #0056b3;
     }
-
+  
     .info {
       background-color: #fff;
       padding: 20px;
@@ -65,18 +76,25 @@
       font-size: 1.1em;
       color: #0056b3;
     }
-
+  
+    .info p {
+      margin: 10px 0;
+    }
+  
     strong {
       color: #003f7f;
     }
   </style>
+  
   <script src="speach.js"></script>
 </head>
 <body>
   <h1>Real-Time Location Tracker</h1>
 
   <div class="inputs">
+    <label for="input-latitude"><strong>Latitude:</strong></label>
     <input type="text" id="destination-lat" placeholder="Enter Destination Latitude">
+    <label for="input-longitude"><strong>Longitude:</strong></label>
     <input type="text" id="destination-lon" placeholder="Enter Destination Longitude">
   </div>
 
