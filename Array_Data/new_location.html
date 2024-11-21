@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Location Tracking</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+    h1 {
+      color: #0056b3;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .inputs input {
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      width: calc(100% - 30px);
+      max-width: 300px;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .info {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      font-size: 1.1em;
+      color: #0056b3;
+    }
+
+    strong {
+      color: #003f7f;
+    }
+  </style>
+   <script src="speach.js"></script>
+</head>
+<body>
+  <h1>Real-Time Location Tracker</h1>
+
+  <div class="inputs">
+    <input type="text" id="destination-lat" placeholder="Enter Destination Latitude">
+    <input type="text" id="destination-lon" placeholder="Enter Destination Longitude">
+  </div>
+
+  <button onclick="startWatching()">Start Tracking</button>
+  <div class="info">
+    <p><strong>Current Latitude:</strong> <span id="latitude">-</span></p>
+    <p><strong>Current Longitude:</strong> <span id="longitude">-</span></p>
+    <p><strong>Current Place:</strong> <span id="place-name">-</span></p>
+    <p><strong>Distance to Destination:</strong> <span id="kilometers">-</span></p>
+  </div>
+
+  <script src="new_location.js"></script>
+</body>
+</html>
