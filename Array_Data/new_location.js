@@ -94,11 +94,14 @@ function startWatching() {
           document.getElementById("kilometers").textContent =
             distance.toFixed(2) + " km";
 
-          // If the distance is less than 0.1 km (100 meters), show an alert
-          if (distance < 0.1) {
+         // If the distance is less than 0.1 km (100 meters) and the sound hasn't been played
+         if (distance < 0.1 && !soundPlayed) {
             const alertSound = document.getElementById("alert-sound");
             alertSound.play(); // Play the sound
-            alert("You are within 100 meters of the destination!");
+            soundPlayed = true; // Set the flag to true, preventing further alerts
+          } else if (distance >= 0.1) {
+            
+            soundPlayed = false;
           }
         } else {
           document.getElementById("kilometers").textContent = "-";
