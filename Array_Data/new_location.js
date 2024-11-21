@@ -4,6 +4,7 @@ let lastLatitude = "";
 let lastLongitude = "";
 const pkey = "one1";
 let currentdata = [];
+let soundPlayed = false;
 getstoragedata();
 
 async function fetchPlaceName(latitude, longitude) {
@@ -98,9 +99,10 @@ function startWatching() {
          if (distance < 0.1 && !soundPlayed) {
             const alertSound = document.getElementById("alert-sound");
             alertSound.play(); // Play the sound
+            alert("You are within 100 meters of the destination!"); // Show alert to user
             soundPlayed = true; // Set the flag to true, preventing further alerts
           } else if (distance >= 0.1) {
-            
+            // Reset the flag if the user moves away from the destination
             soundPlayed = false;
           }
         } else {
