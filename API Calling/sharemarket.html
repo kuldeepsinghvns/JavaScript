@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Price Candlestick Chart</title>
+  <link rel="stylesheet" href="share.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@3.0.0"></script> <!-- Financial chart plugin -->
+</head>
+<body>
+  <div class="container">
+    <h1>Stock Price Candlestick Chart</h1>
+    <div class="stock-info">
+      <input type="text" id="symbol" placeholder="Enter stock symbol (e.g., AAPL)" />
+      <button id="fetchData">Get Stock Data</button>
+      
+      <div id="result">
+        <p id="stockName"></p>
+        <p id="currentPrice"></p>
+        <p id="highPrice"></p>
+        <p id="lowPrice"></p>
+      </div>
+
+      <!-- Canvas for Candlestick Chart -->
+      <canvas id="stockChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+  <script src="share.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Function</title>
+</head>
+<body>
+
+    A:<input type="text" id="a">
+    B:<input type="text" id="b">
+    <button onclick="f()">sum</button>
+
+    <script>
+        function f(){
+          var num1=  document.getElementById('a').value;
+          var num2=  document.getElementById('b').value;
+          var num1Int = parseInt(num1);
+          var num2Int = parseInt(num2);
+
+          sumnumber=num1Int + num2Int
+
+          alert('sum : '+ sumnumber);
+
+        }
+    </script>
+</body>
+</html>

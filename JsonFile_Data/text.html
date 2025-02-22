@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data</title>
+</head>
+
+<body>
+    <div >
+        <div class="row">
+            <!-- <div class="col-md-12" id="textdata"> -->
+                <marquee  direction="left" id="textdata"></marquee>
+            </div>
+        </div>
+    </div>
+
+    <script src="text.js"></script>
+</body>
+
+</html>
+
+
+<!-- <script>
+    fetch("text.json")
+        .then(response => response.json())
+        .then(data => {
+            const placeholder = document.querySelector("#textdata");
+            let newdata = `${data.text}`;
+            placeholder.innerHTML = newdata;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+</script> -->
