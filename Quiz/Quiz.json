@@ -1,0 +1,272 @@
+ [
+    {
+        "qno": "1",
+        "question": "What is Python?",
+        "a": "Dish",
+        "b": "Programming Language",
+        "c": "Swimming",
+        "d": "Sport",
+        "correct_option": "b"
+    },
+    {
+        "qno": "2",
+        "question": "Which country did Kapil Dev play for?",
+        "a": "Australia",
+        "b": "Pakistan",
+        "c": "India",
+        "d": "Nepal",
+        "correct_option": "c"
+    },
+    {
+        "qno": "3",
+        "question": "The game of chess was first started in?",
+        "a": "India",
+        "b": "Arab",
+        "c": "America",
+        "d": "Persia",
+        "correct_option": "a"
+    },
+    {
+        "qno": "4",
+        "question": "What is the capital of France?",
+        "a": "Berlin",
+        "b": "Madrid",
+        "c": "Paris",
+        "d": "Rome",
+        "correct_option": "c"
+    },
+    {
+        "qno": "5",
+        "question": "Who wrote 'Romeo and Juliet'?",
+        "a": "William Shakespeare",
+        "b": "Charles Dickens",
+        "c": "Mark Twain",
+        "d": "Jane Austen",
+        "correct_option": "a"
+    },
+    {
+        "qno": "6",
+        "question": "What is the largest planet in our solar system?",
+        "a": "Earth",
+        "b": "Mars",
+        "c": "Jupiter",
+        "d": "Saturn",
+        "correct_option": "c"
+    },
+    {
+        "qno": "7",
+        "question": "Which element has the chemical symbol 'O'?",
+        "a": "Oxygen",
+        "b": "Gold",
+        "c": "Silver",
+        "d": "Iron",
+        "correct_option": "a"
+    },
+    {
+        "qno": "8",
+        "question": "Who painted the Mona Lisa?",
+        "a": "Vincent Van Gogh",
+        "b": "Pablo Picasso",
+        "c": "Leonardo da Vinci",
+        "d": "Claude Monet",
+        "correct_option": "c"
+    },
+    {
+        "qno": "9",
+        "question": "What is the smallest prime number?",
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "5",
+        "correct_option": "b"
+    },
+    {
+        "qno": "10",
+        "question": "Which country is known as the Land of the Rising Sun?",
+        "a": "China",
+        "b": "Japan",
+        "c": "South Korea",
+        "d": "Thailand",
+        "correct_option": "b"
+    },
+    {
+        "qno": "11",
+        "question": "What is the chemical formula of water?",
+        "a": "CO2",
+        "b": "H2O",
+        "c": "O2",
+        "d": "NaCl",
+        "correct_option": "b"
+    },
+    {
+        "qno": "12",
+        "question": "Who is known as the Father of the Indian Constitution?",
+        "a": "Mahatma Gandhi",
+        "b": "Jawaharlal Nehru",
+        "c": "B.R. Ambedkar",
+        "d": "Sardar Patel",
+        "correct_option": "c"
+    },
+    {
+        "qno": "13",
+        "question": "Which planet is known as the Red Planet?",
+        "a": "Earth",
+        "b": "Mars",
+        "c": "Venus",
+        "d": "Jupiter",
+        "correct_option": "b"
+    },
+    {
+        "qno": "14",
+        "question": "Who discovered gravity?",
+        "a": "Albert Einstein",
+        "b": "Isaac Newton",
+        "c": "Galileo Galilei",
+        "d": "Stephen Hawking",
+        "correct_option": "b"
+    },
+    {
+        "qno": "15",
+        "question": "What is the national animal of India?",
+        "a": "Lion",
+        "b": "Tiger",
+        "c": "Elephant",
+        "d": "Leopard",
+        "correct_option": "b"
+    },
+    {
+        "qno": "16",
+        "question": "Which is the longest river in the world?",
+        "a": "Nile",
+        "b": "Amazon",
+        "c": "Ganga",
+        "d": "Yangtze",
+        "correct_option": "a"
+    },
+    {
+        "qno": "17",
+        "question": "Who is the author of the book 'Wings of Fire'?",
+        "a": "J.K. Rowling",
+        "b": "A.P.J. Abdul Kalam",
+        "c": "Chetan Bhagat",
+        "d": "Amish Tripathi",
+        "correct_option": "b"
+    },
+    {
+        "qno": "18",
+        "question": "Which gas is most abundant in the Earth's atmosphere?",
+        "a": "Oxygen",
+        "b": "Carbon Dioxide",
+        "c": "Nitrogen",
+        "d": "Hydrogen",
+        "correct_option": "c"
+    },
+    {
+        "qno": "19",
+        "question": "What is the currency of Japan?",
+        "a": "Yuan",
+        "b": "Dollar",
+        "c": "Yen",
+        "d": "Euro",
+        "correct_option": "c"
+    },
+    {
+        "qno": "20",
+        "question": "Who is known as the 'Iron Man of India'?",
+        "a": "Mahatma Gandhi",
+        "b": "Sardar Patel",
+        "c": "Jawaharlal Nehru",
+        "d": "Subhas Chandra Bose",
+        "correct_option": "b"
+    },
+    {
+        "qno": "21",
+        "question": "Which is the largest ocean on Earth?",
+        "a": "Atlantic Ocean",
+        "b": "Indian Ocean",
+        "c": "Arctic Ocean",
+        "d": "Pacific Ocean",
+        "correct_option": "d"
+    },
+    {
+        "qno": "22",
+        "question": "Who invented the telephone?",
+        "a": "Thomas Edison",
+        "b": "Alexander Graham Bell",
+        "c": "Nikola Tesla",
+        "d": "Albert Einstein",
+        "correct_option": "b"
+    },
+    {
+        "qno": "23",
+        "question": "What is the capital of Australia?",
+        "a": "Sydney",
+        "b": "Melbourne",
+        "c": "Canberra",
+        "d": "Perth",
+        "correct_option": "c"
+    },
+    {
+        "qno": "24",
+        "question": "Which is the smallest continent by area?",
+        "a": "Africa",
+        "b": "Europe",
+        "c": "Australia",
+        "d": "Antarctica",
+        "correct_option": "c"
+    },
+    {
+        "qno": "25",
+        "question": "Who is known as the 'Father of Computer Science'?",
+        "a": "Bill Gates",
+        "b": "Alan Turing",
+        "c": "Steve Jobs",
+        "d": "Charles Babbage",
+        "correct_option": "b"
+    },
+    {
+        "qno": "26",
+        "question": "Which is the largest desert in the world?",
+        "a": "Sahara Desert",
+        "b": "Arabian Desert",
+        "c": "Gobi Desert",
+        "d": "Antarctic Desert",
+        "correct_option": "d"
+    },
+    {
+        "qno": "27",
+        "question": "What is the chemical symbol for gold?",
+        "a": "Au",
+        "b": "Ag",
+        "c": "Fe",
+        "d": "Cu",
+        "correct_option": "a"
+    },
+    {
+        "qno": "28",
+        "question": "Who is the author of 'Harry Potter' series?",
+        "a": "J.R.R. Tolkien",
+        "b": "J.K. Rowling",
+        "c": "George R.R. Martin",
+        "d": "Stephen King",
+        "correct_option": "b"
+    },
+    {
+        "qno": "29",
+        "question": "Which is the fastest land animal?",
+        "a": "Lion",
+        "b": "Cheetah",
+        "c": "Tiger",
+        "d": "Leopard",
+        "correct_option": "b"
+    },
+    {
+        "qno": "30",
+        "question": "What is the capital of Canada?",
+        "a": "Toronto",
+        "b": "Ottawa",
+        "c": "Vancouver",
+        "d": "Montreal",
+        "correct_option": "b"
+    }
+]

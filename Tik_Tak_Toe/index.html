@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="gameItem"></div>
+    </div>
+    <script>
+        fetch('./game.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log("Fetched Data:", data); // Debugging
+
+                // Ensure "moves" is a valid structure
+                if (!Array.isArray(data.moves) || data.moves.length === 0 || !Array.isArray(data.moves[0])) {
+                    throw new Error("Moves data is not found");
+                }
+
+                const movesArray = data.moves[0]; // Extract the first (and only) row
+                const gameContainer = document.createElement('div');
+                gameContainer.id = 'gameContainer';
+                const playerInfo = document.createElement('h3');
+                playerInfo.textContent = `Player 1 : ${data.player_1} Player 2: ${data.player_2}`;
+                document.querySelector('.container').prepend(playerInfo);
+
+
+                movesArray.forEach((move, index) => {
+                    const gameItem = document.createElement('div');
+                    gameItem.className = 'gameItem';
+                    gameItem.textContent = `${move}`;
+                    gameContainer.appendChild(gameItem);
+                });
+
+                document.querySelector('.container').appendChild(gameContainer);
+            })
+            .catch(error => {
+                console.error('Error fetching the JSON data:', error);
+            });
+
+    </script>
+</body>
+
+</html>

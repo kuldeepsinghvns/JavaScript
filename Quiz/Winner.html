@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC Winner Animation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .winner-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .winner-text {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, gold, white, gold);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: glow 1s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px gold; }
+            100% { text-shadow: 0 0 30px white; }
+        }
+
+        /* Money Rain */
+        .money-rain {
+            position: absolute;
+            width: 70px;
+            height: 35px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/6/6a/Indian_currency_notes.jpg');
+            background-size: cover;
+            opacity: 0.9;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            border-radius: 50%;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotateZ(0deg); }
+            100% { transform: translateY(100vh) rotateZ(360deg); }
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: yellow;
+            border-radius: 50%;
+            animation: explode 1.5s linear infinite;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(5); opacity: 0; }
+        }
+
+        /* Flashing Light */
+        .flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 0, 0.3);
+            opacity: 0;
+            animation: flash-animation 0.5s infinite alternate;
+        }
+
+        @keyframes flash-animation {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.3; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .winner-text {
+                font-size: 2.5rem;
+            }
+            .money-rain {
+                width: 50px;
+                height: 25px;
+            }
+            .confetti, .firework {
+                width: 5px;
+                height: 5px;
+            }
+        }
+
+    </style>
+</head>
+<body onload="startAnimation()">
+
+    <div class="winner-container">
+        <h1 class="winner-text">🎉 Congratulations! 🎉</h1>
+        <h2 class="winner-text">You Won ₹7 Crore! 🏆</h2>
+        <div class="flash"></div>  <!-- Flashing Light Effect -->
+    </div>
+
+    <audio id="winSound" src="https://www.soundjay.com/human/sounds/applause-01.mp3"></audio>
+
+    <script>
+        function startAnimation() {
+            setTimeout(() => {
+                document.getElementById("winSound").play();
+            }, 3000); // 3-second delay before sound plays
+        }
+
+        function createMoney() {
+            for (let i = 0; i < 15; i++) {
+                let money = document.createElement("div");
+                money.classList.add("money-rain");
+                money.style.left = Math.random() * window.innerWidth + "px";
+                money.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(money);
+
+                setTimeout(() => {
+                    money.remove();
+                }, 5000);
+            }
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 40; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        function createFireworks() {
+            for (let i = 0; i < 8; i++) {
+                let firework = document.createElement("div");
+                firework.classList.add("firework");
+                firework.style.left = Math.random() * window.innerWidth + "px";
+                firework.style.top = Math.random() * window.innerHeight / 2 + "px";
+                firework.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                document.body.appendChild(firework);
+
+                setTimeout(() => {
+                    firework.remove();
+                }, 2000);
+            }
+        }
+        function startAnimation() {
+        setTimeout(() => {
+            document.getElementById("winSound").play();
+        }, 3000); // 3-second delay before sound plays
+
+        // 30 सेकंड बाद index.html पर रीडायरेक्ट करें
+        setTimeout(() => {
+            window.location.href = "KBC.html";
+        }, 30000); // 30 seconds = 30000 milliseconds
+    }
+
+        setInterval(createMoney, 1000);
+        setInterval(createConfetti, 2000);
+        setInterval(createFireworks, 3000);
+    </script>
+
+</body>
+</html>

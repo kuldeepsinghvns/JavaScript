@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Person Display</title>
+</head>
+
+<body>
+
+  <button onclick="showPerson()">Show Random Person</button>
+  <div id="demo"></div>
+
+  <script>
+    const people = [
+      { "id": 1, "name": "Kuldeep", "age": 25, "city": "Varanasi" },
+      { "id": 2, "name": "Rahul", "age": 27, "city": "Lucknow" },
+      { "id": 3, "name": "Amit", "age": 22, "city": "Delhi" },
+      { "id": 4, "name": "Priya", "age": 24, "city": "Mumbai" },
+      { "id": 5, "name": "Sneha", "age": 26, "city": "Pune" },
+      { "id": 6, "name": "Vikas", "age": 23, "city": "Jaipur" },
+      { "id": 7, "name": "Anjali", "age": 28, "city": "Chennai" },
+      { "id": 8, "name": "Rohit", "age": 29, "city": "Hyderabad" },
+      { "id": 9, "name": "Neha", "age": 21, "city": "Kolkata" },
+      { "id": 10, "name": "Sandeep", "age": 30, "city": "Bangalore" }
+    ];
+
+    function showPerson() {
+      const randomIndex = Math.floor(Math.random() * people.length);
+      const person = people[randomIndex];
+
+      document.getElementById('demo').innerHTML =
+        `<strong>Name:</strong> ${person.name} <br> 
+         <strong>Age:</strong> ${person.age} <br> 
+         <strong>City:</strong> ${person.city}`;
+    }
+  </script>
+
+</body>
+
+</html>

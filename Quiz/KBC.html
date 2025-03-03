@@ -4,603 +4,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBC</title>
-    <script>
-        let num = 0;
-        let result;
-
-        function f1() {
-            document.getElementById("Update").vlaue = `${num}`;
-            let result = SelectAnswerByRadioButton();
-            alert(result);
-        }
-
-        const questions = [{
-            "qno": "1",
-            "question": "What is Python?",
-            "a": "Dish",
-            "b": "Programming Language",
-            "c": "Swimming",
-            "d": "Sport",
-            "correct_option": "b"
-        },
-        {
-            "qno": "2",
-            "question": "Which country did Kapil Dev play?",
-            "a": "Australia",
-            "b": "Pakistan",
-            "c": "India",
-            "d": "Nepal",
-            "correct_option": "c"
-        },
-        {
-            "qno": "3",
-            "question": "The game of chess was first started in?",
-            "a": "India",
-            "b": "Arab",
-            "c": "America",
-            "d": "Persia",
-            "correct_option": "a"
-
-        },
-        {
-            "qno": "4",
-            "question": "Which planet is closest to the sun?",
-            "a": "Venus",
-            "b": "Mercury",
-            "c": "Earth",
-            "d": "Mars",
-            "correct_option": "b"
-        },
-        {
-            "qno": "5",
-            "question": "Who wrote the novel 'Pride and Prejudice'?",
-            "a": "Jane Austen",
-            "b": "Charlotte Brontë",
-            "c": "Mary Shelley",
-            "d": "George Eliot",
-            "correct_option": "a"
-        },
-        {
-            "qno": "6",
-            "question": "What is the largest ocean on Earth?",
-            "a": "Pacific Ocean",
-            "b": "Atlantic Ocean",
-            "c": "Indian Ocean",
-            "d": "Arctic Ocean",
-            "correct_option": "a"
-        },
-        {
-            "qno": "7",
-            "question": "What is the capital of France?",
-            "a": "Lyon",
-            "b": "Marseille",
-            "c": "Paris",
-            "d": "Bordeaux",
-            "correct_option": "c"
-        },
-        {
-            "qno": "8",
-            "question": "Which invention revolutionized communication in the 19th century?",
-            "a": "Automobile",
-            "b": "Telephone",
-            "c": "Light bulb",
-            "d": "Airplane",
-            "correct_option": "b"
-        },
-        {
-            "qno": "9",
-            "question": "Which mountain range is the highest in the world?",
-            "a": "Andes",
-            "b": "Himalayas",
-            "c": "Rockies",
-            "d": "Alps",
-            "correct_option": "b"
-        },
-        {
-            "qno": "10",
-            "question": "Who painted the Mona Lisa?",
-            "a": "Michelangelo",
-            "b": "Leonardo da Vinci",
-            "c": "Donatello",
-            "d": "Raphael",
-            "correct_option": "b"
-        },
-        {
-            "qno": "11",
-            "question": "What is the chemical symbol for water?",
-            "a": "H2O",
-            "b": "CO2",
-            "c": "NaCl",
-            "d": "NH3",
-            "correct_option": "a"
-        },
-        {
-            "qno": "12",
-            "question": "What is the largest country in the world by area?",
-            "a": "China",
-            "b": "Russia",
-            "c": "United States",
-            "d": "Canada",
-            "correct_option": "b"
-        },
-        {
-            "qno": "13", "question": "Which book is the best-selling novel of all time?",
-            "a": "Harry Potter and the Sorcerer's Stone",
-            "b": "Don Quixote",
-            "c": "One Hundred Years of Solitude",
-            "d": "To Kill a Mockingbird",
-            "correct_option": "a"
-        },
-        {
-            "qno": "14", "question": "What is the capital of India?",
-            "a": " Mumbai",
-            "b": " Chennai",
-            "c": " Delhi",
-            "d": " Kolkata",
-            "correct_option": "c"
-        },
-        {
-            "qno": "15", "question": "Who invented the light bulb?",
-            "a": "Thomas Edison",
-            "b": "Benjamin Franklin",
-            "c": "Nikola Tesla",
-            "d": "Alexander Graham Bell",
-            "correct_option": "a"
-        },
-        {
-            "qno": "16", "question": "What is the largest living organism on Earth?",
-            "a": "Blue whale",
-            "b": "Giant sequoia",
-            "c": "Honey fungus",
-            "d": "African baobab",
-            "correct_option": "b"
-        }
-
-        ];
-
-
-
-        function update() {
-            if (result == correctanswer)
-                num -= 1;
-            document.getElementById("Update").innerHTML = `${num}`;
-        }
-
-
-
-        let qno = 0;
-        const NoQuestions = 16;
-        let correctanswer = "";
-
-        function NextQuestion() {
-
-
-            let SelectAnswer = 0;
-            if (qno > 0) {
-                SelectAnswer = SelectAnswerByRadioButton();
-                if (SelectAnswer == 'e') {
-                    alert("Please Select an Option");
-                    return;
-                }
-                alert('Given Answer is ' + `${SelectAnswer} ' and correctanswer is '${correctanswer}`);
-                if (SelectAnswer != correctanswer) {
-                    alert("Wrong Answer");
-                    window.location = "Gameover.html";
-                    return;
-                }
-                setprize(qno);
-                alert("Correct Answer");
-
-            }
-
-            console.log(qno);
-            document.getElementById("qno").innerHTML = `${questions[qno].question}`;
-            document.getElementById("a").innerHTML = `${questions[qno].a}`;
-            document.getElementById("b").innerHTML = `${questions[qno].b}`;
-            document.getElementById("c").innerHTML = `${questions[qno].c}`;
-            document.getElementById("d").innerHTML = `${questions[qno].d}`;
-            document.getElementById("default").checked = true;
-            correctanswer = questions[qno].correct_option;
-            // console.log(2);
-
-            if (qno >= NoQuestions)
-                alert("KBC End");
-            qno = qno + 1;
-
-            function setprize(qno) {
-                for (let i = 1; i <= 15; i++) {
-                    document.getElementById(`pz${i}`).classList.remove("currentprize");
-                }
-                document.getElementById(`pz${qno}`).classList.add("currentprize");
-
-
-            }
-
-
-        }
-        function SelectAnswerByRadioButton() {
-            let result = document.getElementById("opt_A").checked;
-            if (result)
-                return "a";
-
-            result = document.getElementById("opt_B").checked;
-            if (result)
-                return "b";
-
-            result = document.getElementById("opt_C").checked;
-            if (result)
-                return "c";
-
-            result = document.getElementById("opt_D").checked;
-            if (result)
-                return "d";
-            return "e";
-
-        }
-        const prizes = [5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 125000, 250000, 500000, 1000000, 3000000, 5000000, 7000000]
-
-        // let n = 0;
-        // let timerx;
-        // let timeallowed = 10;
-        // function f() {
-        //     n++;
-        //     document.title = n;
-        //     if (n > 10) {
-        //         clearInterval(timerx);
-        //         alert("Time Over");
-        //         location = "Gameover.html";
-        //         return;
-        //     }
-        // }
-        // function startTimer() {
-        //     timerx = setInterval("f()", 1000);
-        // }
-
-
-
-
-
-        // }
-
-        //Speak Function //
-
-
-       
-        document.addEventListener('DOMContentLoaded', function () {
-            // Check if the browser supports the Web Speech API
-            if ('speechSynthesis' in window) {
-                var speakButton = document.getElementById('speakButton');
-                speakButton.addEventListener('click', function () {
-                    amitabh();
-                });
-            } else {
-                console.error('Speech synthesis is not supported in this browser.');
-            }
-        });
-
-        function amitabh() {
-            if (qno === 0) return; // If no question has been loaded yet, do nothing
-            let question = questions[qno - 1].question;
-            let a = questions[qno - 1].a;
-            let b = questions[qno - 1].b;
-            let c = questions[qno - 1].c;
-            let d = questions[qno - 1].d;
-            var message = new SpeechSynthesisUtterance(`Your question is ${question}. Options are: a. ${a}, b. ${b}, c. ${c}, d. ${d}.`);
-
-            // Set voice options (optional)
-            message.voice = speechSynthesis.getVoices()[0]; // You can choose a specific voice
-            message.rate = 1; // Speed of speech (0.1 to 10)
-            message.pitch = 1; // Pitch of speech (0 to 2)
-            window.speechSynthesis.speak(message);
-            console.log("Done");
-        }
-
-    </script>
+    <title>KBC Quiz Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        .currentprize {
-            border-color: #ffc0cb;
-            border-style: ridge;
-            background-color: #ee3d3d;
-            color: #f0ffff;
-            border-radius: 50px;
-            box-shadow: 3px 5px 3px wheat;
-        }
-
-        .currentprize:hover {
-            background-color: #ff1493;
-        }
-
-        .h1 {
-            background-color: #ff7f50;
-        }
-
-        .pz {
-            background-color: #d8bfd8;
+        body {
+            background: linear-gradient(135deg, #4B0082, #1E90FF);
+            color: white;
             text-align: center;
+            font-family: Arial, sans-serif;
         }
 
-        .que {
-            background-color: #f0ffff;
+        .container {
+            margin-top: 30px;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
         }
 
-        .opt {
-            background-color: #e0ffff;
-            color: coral;
+        .status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .table {
-            background-color: #f0fff0;
-            height: 70%;
-            width: 90%;
-        }
-
-        .btn {
-            background-color: #e6c8b0;
+        .timer,
+        .prize {
+            font-size: 24px;
+            font-weight: bold;
+            background: white;
+            color: black;
+            padding: 10px 15px;
             border-radius: 50px;
-            box-shadow: 2px 2px 2px rgb(126, 172, 213);
+            display: inline-block;
         }
 
-        .btn:hover {
-            background-color: #e6e6fa;
+        .question {
+            font-size: 22px;
+            margin-top: 20px;
         }
 
-        .timer {
-            background-color: #e0ffff;
-            border-radius: 50px;
-            border-style: ridge;
-            border-color: #ee3d3d;
-            width: 100px;
+        .options label {
+            display: block;
+            background: #6A5ACD;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
+        .options label:hover {
+            background: #00BFFF;
+        }
+
+        .submit-btn {
+            background: #FFD700;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #FFA500;
         }
     </style>
-
 </head>
 
-
-
 <body>
+    <div class="container">
+        <h1>KBC Quiz</h1>
+        <div class="status">
+            <div class="timer" id="timer">60</div>
+            <div class="prize" id="prize">₹0</div>
+        </div>
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <button class="submit-btn" onclick="checkAnswer()">Submit</button>
+    </div>
 
-    <center>
-        <table border="1" class="table">
+    <script>
+        let timeLimit = 60; 
+        let timeLeft = timeLimit;
+        let timer;
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let prizeMoney = 0;
 
-            <tr>
+        function startTimer() {
+            clearInterval(timer);
+            timeLeft = timeLimit;
+            document.getElementById("timer").textContent = timeLeft;
 
-                <td colspan="5" class="h1">
-                    <center>
-                        <h1>KBC</h1>
-                        <p>
-                        <h1 class="timer" id="timer">00</h1>
-                        </p>
-                    </center>
+            timer = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    localStorage.setItem("prizeAmount", prizeMoney);
+                    window.location.href = "Gameover.html"; // टाइमर खत्म होने पर गेम ओवर पेज पर जाए
+                } else {
+                    document.getElementById("timer").textContent = timeLeft;
+                    timeLeft--;
+                }
+            }, 1000);
+        }
 
-                </td>
+        let prizeSteps = [
+            1000, 2000, 3000, 5000,
+            10000, 20000, 40000, 80000,
+            160000, 320000, 640000, 1250000,
+            2500000, 5000000, 10000000, 70000000
+        ];
 
-                <td rowspan="10" class="pz">
-                    <center>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h4>8 -</h4>
-                                </td>
-                                <td id="pz8">
-                                    <h4>
-                                        <center>₹ 3,20,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
+        function formatPrize(amount) {
+            if (amount >= 10000000) return (amount / 10000000) + " Crore";
+            if (amount >= 100000) return (amount / 100000) + " Lakh";
+            return amount.toLocaleString();
+        }
 
+        function updatePrizeDisplay() {
+            document.getElementById("prize").textContent = "₹" + formatPrize(prizeMoney);
+        }
 
-                            <tr>
-                                <td>
-                                    <h4>7 -</h4>
-                                </td>
-                                <td id="pz7">
-                                    <h4>
-                                        <center>₹ 1,60,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>6 -</h4>
-                                </td>
-                                <td id="pz6">
-                                    <h4>
-                                        <center>₹ 80,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>5 -</h4>
-                                </td>
-                                <td id="pz5">
-                                    <h4>
-                                        <center>₹ 40,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>4 -</h4>
-                                </td>
-                                <td id="pz4">
-                                    <h4>
-                                        <center>₹ 20,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>3 -</h4>
-                                </td>
-                                <td id="pz3">
-                                    <h4>
-                                        <center>₹ 10,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>2 -</h4>
-                                </td>
-                                <td id="pz2">
-                                    <h4>
-                                        <center>₹ 5,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>1 -</h4>
-                                </td>
-                                <td id="pz1">
-                                    <h4>
-                                        <center>₹ 3,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
+        async function loadQuestions() {
+            try {
+                let response = await fetch('Quiz.json');  
+                questions = await response.json();
+                questions = questions.sort(() => Math.random() - 0.5);  
+                loadQuestion();
+            } catch (error) {
+                console.error("Error loading questions:", error);
+            }
+        }
 
+        function loadQuestion() {
+            if (currentQuestionIndex < questions.length) {
+                let currentQuestion = questions[currentQuestionIndex];
 
-                        </table>
-                    </center>
+                document.getElementById("question").innerHTML = `<p><strong>${currentQuestion.question}</strong></p>`;
+                document.getElementById("options").innerHTML = `
+                    <label><input type="radio" name="option" value="a"> ${currentQuestion.a}</label>
+                    <label><input type="radio" name="option" value="b"> ${currentQuestion.b}</label>
+                    <label><input type="radio" name="option" value="c"> ${currentQuestion.c}</label>
+                    <label><input type="radio" name="option" value="d"> ${currentQuestion.d}</label>
+                `;
 
-                </td>
+                startTimer(); // जब नया सवाल लोड हो, तो टाइमर रीसेट हो
+            } else {
+                localStorage.setItem("prizeAmount", prizeMoney);
+                window.location.href = "Winner.html"; // सभी सवाल सही होने पर विजेता पेज पर जाए
+            }
+        }
 
-                <td rowspan="10" class="pz">
-                    <center>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h4>16 -</h4>
-                                </td>
-                                <td id="pz8">
-                                    <h4>
-                                        <center>₹ 7 crore</center>
-                                    </h4>
-                                </td>
-                            </tr>
+        function checkAnswer() {
+            let selectedOption = document.querySelector('input[name="option"]:checked');
+            if (selectedOption) {
+                let currentQuestion = questions[currentQuestionIndex];
 
-                            <tr>
-                                <td>
-                                    <h4>15 -</h4>
-                                </td>
-                                <td id="pz15">
-                                    <h4>
-                                        <center>₹ 5 crore</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>14 -</h4>
-                                </td>
-                                <td id="pz14">
-                                    <h4>₹ 3 crore</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>13 -</h4>
-                                </td>
-                                <td id="pz13">
-                                    <h4>₹ 1 crore</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>12 -</h4>
-                                </td>
-                                <td id="pz12">
-                                    <h4>
-                                        <center>₹ 50 lakh</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>11 -</h4>
-                                </td>
-                                <td id="pz11">
-                                    <h4>
-                                        <center>₹ 25 lakh</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>10 -</h4>
-                                </td>
-                                <td id="pz10">
-                                    <h4>
-                                        <center>₹ 12,50,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>9 -</h4>
-                                </td>
-                                <td id="pz9">
-                                    <h4>
-                                        <center>₹ 6,40,000</center>
-                                    </h4>
-                                </td>
-                            </tr>
+                if (selectedOption.value === currentQuestion.correct_option) {
+                    prizeMoney = prizeSteps[currentQuestionIndex] || prizeMoney;
+                    updatePrizeDisplay();
 
+                    currentQuestionIndex++;
+                    loadQuestion();
+                } else {
+                    localStorage.setItem("prizeAmount", prizeMoney);
+                    window.location.href = "Gameover.html"; // गलत जवाब देने पर गेम ओवर पेज पर जाए
+                }
+            } else {
+                alert("⚠️ Please select an answer!");
+            }
+        }
 
-
-                        </table>
-                    </center>
-
-                </td>
-
-            </tr>
-            <tr>
-
-                <td style="background-image: url('../pics/');" colspan="2" rowspan="20" class="que">
-                    <h2>
-                        <center>Question :</center>
-                    </h2>
-                    <h3>
-                        <center>
-                            <p id="qno"></p>
-                        </center>
-                    </h3>
-                </td>
-
-            </tr>
-
-
-            <tr class="opt">
-
-                <td> <input id="opt_A" name="opt" type="radio" value="a"><label for="opt_A" id="a"></label> </td>
-                <td> <input id="opt_B" name="opt" type="radio" value="b"> <label for="opt_B" id="b"></label></td>
-
-            </tr>
-            <tr class="opt">
-                <td> <input id="opt_C" name="opt" type="radio" value="c"><label for="opt_C" id="c"></label> </td>
-                <td> <input id="opt_D" name="opt" type="radio" value="d"> <label for="opt_D" id="d"></label></td>
-
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><button id="onclick" type="submit" class="btn"
-                        onclick="NextQuestion()">Submit</button>
-                    <button id="speakButton" class="btn" type="button" onclick="amitabh()">Speak</button>
-                </td>
-
-            </tr>
-
-        </table>
-        <script>startTimer()</script>
-        <script>amitabh()</script>
-        <input id="default" name="opt" type="radio" style="display: none;" value="">
-
-    </center>
-
-
-
+        loadQuestions();
+    </script>
 </body>
 
 </html>
