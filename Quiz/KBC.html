@@ -60,26 +60,87 @@
         }
 
         .submit-btn {
-            background: #FFD700;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+        background: linear-gradient(180deg, #ffb700, #d19200);
+        border: 2px solid #ffcc00;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 5px 10px rgba(255, 215, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
 
-        .submit-btn:hover {
-            background: #FFA500;
-        }
+    .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+        transform: translate(-50%, -70%);
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+    }
+
+    .submit-btn:hover::before {
+        opacity: 1;
+        transform: translate(-50%, -60%);
+    }
+
+    .submit-btn:hover {
+        background: linear-gradient(180deg, #ffcc33, #c88c00);
+        box-shadow: 0 4px 15px rgba(255, 200, 0, 0.4);
+        transform: scale(1.05);
+    }
+
+    .submit-btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 3px 10px rgba(255, 200, 0, 0.5);
+    }
+
+        /* kbc heading */
+        .kbc-heading {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        color: gold;
+        background: linear-gradient(90deg, #ffcc00, #ffffff, #ffcc00);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 10px gold, 0 0 20px white, 0 0 30px gold;
+        animation: glow 1s infinite alternate, flicker 2s infinite;
+        padding: 20px;
+        border: 5px solid gold;
+        display: inline-block;
+        border-radius: 15px;
+        box-shadow: 0 0 20px gold;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 10px gold; }
+        100% { text-shadow: 0 0 30px white; }
+    }
+
+    @keyframes flicker {
+        0% { opacity: 1; }
+        50% { opacity: 0.8; }
+        100% { opacity: 1; }
+    }
+
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>KBC Quiz</h1>
+        <h1 class="kbc-heading">KBC Quiz</h1>
         <div class="status">
             <div class="timer" id="timer">60</div>
             <div class="prize" id="prize">₹0</div>
