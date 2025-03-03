@@ -90,7 +90,7 @@
     </div>
 
     <script>
-        let timeLimit = 60; 
+        let timeLimit = 60;
         let timeLeft = timeLimit;
         let timer;
         let questions = [];
@@ -131,17 +131,26 @@
             document.getElementById("prize").textContent = "₹" + formatPrize(prizeMoney);
         }
 
+        // ✅ Fisher-Yates Shuffle Algorithm
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+        }
+
         async function loadQuestions() {
             try {
-                let response = await fetch('Quiz.json');  
+                let response = await fetch('Quiz.json');
                 questions = await response.json();
-                questions = questions.sort(() => Math.random() - 0.5);  
+
+                shuffleArray(questions); // ✅ Perfect Random Shuffle
+
                 loadQuestion();
             } catch (error) {
                 console.error("Error loading questions:", error);
             }
         }
-
         function loadQuestion() {
             if (currentQuestionIndex < questions.length) {
                 let currentQuestion = questions[currentQuestionIndex];
