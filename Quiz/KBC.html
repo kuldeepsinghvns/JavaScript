@@ -204,7 +204,7 @@
                 if (timeLeft <= 0) {
                     clearInterval(timer);
                     localStorage.setItem("prizeAmount", prizeMoney);
-                    window.location.href = "Gameover.html"; // टाइमर खत्म होने पर गेम ओवर पेज पर जाए
+                    window.location.href = "Gameover.html"; 
                 } else {
                     document.getElementById("timer").textContent = timeLeft;
                     timeLeft--;
@@ -229,7 +229,7 @@
             document.getElementById("prize").textContent = "₹" + formatPrize(prizeMoney);
         }
 
-        // ✅ Fisher-Yates Shuffle Algorithm
+        //  Fisher-Yates Shuffle Algorithm
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 let j = Math.floor(Math.random() * (i + 1));
@@ -242,7 +242,7 @@
                 let response = await fetch('Quiz.json');
                 questions = await response.json();
 
-                shuffleArray(questions); // ✅ Perfect Random Shuffle
+                shuffleArray(questions); //  Perfect Random Shuffle
 
                 loadQuestion();
             } catch (error) {
@@ -261,10 +261,10 @@
                     <label><input type="radio" name="option" value="d"> ${currentQuestion.d}</label>
                 `;
 
-                startTimer(); // जब नया सवाल लोड हो, तो टाइमर रीसेट हो
+                startTimer();
             } else {
                 localStorage.setItem("prizeAmount", prizeMoney);
-                window.location.href = "Winner.html"; // सभी सवाल सही होने पर विजेता पेज पर जाए
+                window.location.href = "Winner.html"; //go to winner page
             }
         }
 
@@ -277,7 +277,7 @@
                     prizeMoney = prizeSteps[Math.min(currentQuestionIndex, prizeSteps.length - 1)] || prizeMoney;
                     updatePrizeDisplay();
 
-                    // ✅ अगर 16 सवाल सही हो जाएं या प्राइज 7 करोड़ हो जाए, तो Winner.html पर जाएं
+                    // winner condition
                     if (currentQuestionIndex + 1 >= 16 || prizeMoney >= 70000000) {
                         localStorage.setItem("prizeAmount", prizeMoney);
                         window.location.href = "Winner.html";
@@ -288,7 +288,7 @@
                     loadQuestion();
                 } else {
                     localStorage.setItem("prizeAmount", prizeMoney);
-                    window.location.href = "Gameover.html"; // गलत जवाब देने पर गेम ओवर पेज पर जाए
+                    window.location.href = "Gameover.html"; //wrong answer to redirect gameover page
                 }
             } else {
                 alert("⚠️ Please select an answer!");
